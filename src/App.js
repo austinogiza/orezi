@@ -1,6 +1,6 @@
 import React from 'react'
 import './App.css'
-import img from './assets/black.png'
+import img from './assets/blacksmall.png'
 const App = () => {
   return (
  <React.Fragment>
