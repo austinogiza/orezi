@@ -15,4 +15,10 @@ font-size: 35px;
 font-weight: 500;
 color: ${themes.black};
 text-align: center;
+
+@media only screen and (max-width: 650px){
+  width: 130px;
+height: 40px;
+font-size: 16px;
+}
 `

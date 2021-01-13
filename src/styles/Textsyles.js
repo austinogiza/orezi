@@ -51,10 +51,43 @@ line-height: 1.4;
 }
 
 `
+
+export const bodyHeader = styled.h1`
+ font-family: "Euclid-medium";
+font-size: 24px;
+font-weight: 300;
+line-height: 1.4;
+@media only screen and (max-width: 650px){
+  font-size: 18px;
+}
+
+`
+
+export const bodyHead = styled.h1`
+ font-family: "Euclid-medium";
+font-size: 20px;
+font-weight: 400;
+line-height: 1.4;
+@media only screen and (max-width: 650px){
+  font-size: 17px;
+}
+
+`
+
+export const bodyText = styled.h1`
+font-family: "Euclid-light";
+font-size: 20px;
+font-weight: 400;
+line-height: 1.4;
+@media only screen and (max-width: 650px){
+  font-size: 17px;
+}
+
+`
+
 export const textCopy = styled.h1`
  font-family: "Euclid-medium";
 font-size: 26px;
-
 line-height: 1.4;
 @media only screen and (max-width: 650px){
   font-size: 18px;
