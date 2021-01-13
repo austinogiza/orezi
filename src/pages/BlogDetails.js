@@ -6,10 +6,10 @@ import pic from '../assets/pic.png'
 import { Body,bodyHead,Header,bodyText,textCopy,tinyTexts } from '../styles/Textsyles'
 import {FaFacebookF,FaTwitter,FaLinkedinIn} from 'react-icons/fa'
 import { themes } from '../styles/ColorStyles'
-import { Link, useParams } from 'react-router-dom'
+import { Link, } from 'react-router-dom'
 import {motion} from 'framer-motion'
 import {pageAnimation} from '../animation'
-import { blogPostUrl } from '../constants'
+// import { blogPostUrl } from '../constants'
 import axios from 'axios'
 
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { useParams } from 'react-router-dom'
+// import { useParams } from 'react-router-dom'
 import styled from 'styled-components'
 import { themes } from '../styles/ColorStyles'
 import { headerMedium,textCopy,bodyHeader,bodyText } from '../styles/Textsyles'
