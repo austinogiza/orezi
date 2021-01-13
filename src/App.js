@@ -3,7 +3,7 @@ import './App.css'
 //portfolio layout
 import Layout from './Container/Layout'
 //portfolio router
-import { BrowserRouter as Router, Switch, Route,useLocation} from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 
 //portfolio history
 import {createBrowserHistory} from 'history'

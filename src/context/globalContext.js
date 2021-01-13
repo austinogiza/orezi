@@ -1,20 +1,20 @@
-import React, { useContext, useReducer,createContext} from 'react'
+// import React, { useContext, useReducer,createContext} from 'react'
 
 
-//define context
+// //define context
 
-const GlobalStateContext = createContext()
-const GlobalDispatchContext = createContext()
+// const GlobalStateContext = createContext()
+// const GlobalDispatchContext = createContext()
 
 
-const globalReducer = (state, action)=>{
+// const globalReducer = (state, action)=>{
 
- switch (action.type) {
-  //  case:
+//  switch (action.type) {
+//   //  case:
      
-  //    break;
+//   //    break;
  
-   default:
-     break;
- }
-}
+//    default:
+//      break;
+//  }
+// }
