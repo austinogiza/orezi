@@ -14,12 +14,12 @@ import axios from 'axios'
 
 
 const BlogDetails = () => {
-const {slug} = useParams();
+// const {slug} = useParams();
 const [post,setPost] = useState(null)
 
   const fetchPost = ()=>{
 axios
-.get(blogPostUrl(slug))
+// .get(blogPostUrl(slug))
 .then(res=>{
   setPost(res.data)
 })

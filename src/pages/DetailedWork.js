@@ -8,7 +8,7 @@ import {motion} from 'framer-motion'
 import {pageAnimation} from '../animation'
 const DetailedWork = () => {
 
-  const {slug} = useParams()
+  // const {slug} = useParams()
 
 
   return (
