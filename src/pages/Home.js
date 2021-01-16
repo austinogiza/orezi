@@ -6,22 +6,32 @@ import img from '../assets/sit.png'
 import real from '../assets/r.svg'
 import {motion} from 'framer-motion'
 import {pageAnimation} from '../animation'
+import AboutTop from '../Components/AboutTop'
+import Resume from '../Components/Resume'
+import Business from '../Components/Business'
 
 const Home = () => {
   return (
   <Homebody variants={pageAnimation} initial="hidden" animate="show"  exit="exit">
     <Container>
-      <Orezi>
+<HomeTop>
+<Orezi>
         <Oreziheader>Hi, I’m Orezi Mena</Oreziheader>
         <Orezitext>Lets start the journey together,  and if you have
 started when you see this, lets finish what you started.  That idea, business, brand, product, would stand out with proper branding...... </Orezitext>
-<Orezibutton to='/about'>Discover more</Orezibutton>
+<Orezibutton to='/contact'>Say Hi</Orezibutton>
       </Orezi>
 
       <Sitting>
         <Sitimg src={img} alt="Creaative Mena"/>
       </Sitting>
+</HomeTop>
+
+    
     </Container>
+    <AboutTop/>
+      <Business/>
+      <Resume/>
   </Homebody>
   )
 }
@@ -31,6 +41,8 @@ const Homebody = styled(motion.div)`
 min-height: 800px;
 width: 100%;
 display: flex;
+flex-direction: column;
+
 align-items: center;
 justify-content: center;
 background-image: url(${real});
@@ -43,6 +55,13 @@ height: 100%;
 width: 100%;
 max-width: 1200px;
 margin: 0 auto;
+`
+
+const HomeTop = styled.div`
+height: 100%;
+width: 100%;
+max-width: 1100px;
+margin: 40px auto;
 display: grid;
 grid-template-columns: repeat(2,1fr);
 grid-template-areas: "text image";
@@ -87,8 +106,8 @@ grid-area: image;
 const Sitimg = styled.img`
 height: 100%;
 width: 100%;
-max-height: 794px;
-max-width: 794px;
+max-height: 455px;
+max-width: 455px;
 
 
 `

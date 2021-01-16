@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
-import styled, { keyframes } from 'styled-components'
+import styled from 'styled-components'
 import img from '../assets/e.svg'
 import logo from '../assets/Logo.svg'
 import { themes } from '../styles/ColorStyles'
@@ -8,7 +8,7 @@ import { themes } from '../styles/ColorStyles'
 const Navbar = () => {
 
   const [menu, setMenu] = useState(false)
-  const [dropdownMenu,setDropdownMenu] =useState(false)
+
 
   
 
@@ -36,20 +36,13 @@ const Navbar = () => {
            About 
            </Navhref>
          </Navli >
-        
-         <DropNavli onMouseLeave={ () => setDropdownMenu(false)} onMouseEnter={() => setDropdownMenu(true)}>
-           <Navhref activeClassName="active-nav" to='/work'>
-       Work 
+         <Navli>
+           <Navhref  activeClassName="active-nav"  to='/work'>
+           Work 
            </Navhref>
-           <Dropdown isDropped={dropdownMenu}>
-           <Dropcover>
-           <Droplink>Portfolio</Droplink>
-             <Droplink>Resume</Droplink>
-
-           </Dropcover>
-             
-           </Dropdown>
-         </DropNavli>
+         </Navli>
+      
+         
          <Navli>
            <Navhref  activeClassName="active-nav"  to='/services'>
            Services 
@@ -128,36 +121,8 @@ transform:${props => (props.isOpen ? "translateY(0%)":"translateY(-100%)")}
 
 }
 `
-const DropNavli = styled.li`
-font-size: 24px;
-font-weight: 400;
-padding: 10px 30px;
-position: relative;
-`
-const revealDropDown = keyframes`
-0%{
-  opacity: 0;
 
-}
-100%{
-  opacity: 1;
-}
-`
-const Dropdown = styled.div`
-position: absolute;
-top: 60px;
-left: 20px;
-animation: ${revealDropDown} 1s ease-in-out;
-display: ${props=>(props.isDropped ? "block": "none")}
-`
-const Dropcover = styled.div`
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-`
 
-const Droplink = styled.div``
 const Navul = styled.ul`
 display: flex;
 justify-content: center;

@@ -225,26 +225,32 @@ border-radius: 12px;
 const Formbutton = styled.button`
 max-width: 584px;
 width: 100%;
-height: 60px;
+height: 74px;
 
-font-size: 20px;
+font-size: 35px;
 font-weight: 500;
 line-height: 25px;
 letter-spacing: 0em;
 display: flex;
 align-items: center;
 justify-content: center;
-
-/* primary white */
-resize: none;
+transition: all 0.3s ease-in;
+:hover{
+  border: none;
+  background: ${themes.yellow};
+  color: ${themes.black};
+}
 
 background: ${themes.primary};
-/* primary white */
-
 border: 1px solid  ${themes.primary};
 box-sizing: border-box;
-border-radius: 12px;
+border-radius: 30px;
 outline: none;
+
+@media only screen and (max-width: 650px){
+
+font-size: 21px;
+}
 `
 const Social = styled.div`
 display: grid;
