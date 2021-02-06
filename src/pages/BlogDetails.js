@@ -7,8 +7,6 @@ import { Body,bodyHead,Header,bodyText,textCopy,tinyTexts } from '../styles/Text
 import {FaFacebookF,FaTwitter,FaLinkedinIn} from 'react-icons/fa'
 import { themes } from '../styles/ColorStyles'
 import { Link, } from 'react-router-dom'
-import {motion} from 'framer-motion'
-import {pageAnimation} from '../animation'
 // import { blogPostUrl } from '../constants'
 import axios from 'axios'
 
@@ -33,7 +31,7 @@ axios
   }, [])
 
   return (
-    <Blogbody variants={pageAnimation} initial="hidden" animate="show"  exit="exit">
+    <Blogbody>
 
       <Container>
      {post &&  <BlogDetail>
@@ -89,7 +87,7 @@ axios
   )
 }
 
-const Blogbody = styled(motion.div)`
+const Blogbody = styled.div`
 min-height: 600px;
 width:100%;
 padding: 10px 25px;

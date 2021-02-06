@@ -1,24 +1,31 @@
 import React, { useEffect, useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 import styled from 'styled-components'
 import img from '../assets/e.svg'
 import logo from '../assets/Logo.svg'
 import { themes } from '../styles/ColorStyles'
-
+import Panels from './Panels'
+import {AnimatePresence} from 'framer-motion'
 const Navbar = () => {
 
   const [menu, setMenu] = useState(false)
+  const [handlePanel, setHandlePanel] = useState(false)
+  const location = useLocation()
 
-
+const handleMenu = ()=>{
+  setHandlePanel(true)
+  setMenu(!menu)
+  setHandlePanel(true)
+}
   
 
   useEffect(() => {
-  
-    return () => {
-   
-    }
-  }, [])
+    setMenu(false)
+  }, [location])
   return (
+
+    <AnimatePresence>
+    <>
  <Navcover>
    <Container>
      <Logo>
@@ -29,23 +36,10 @@ const Navbar = () => {
      </Logo>
 
      <Navlinks isOpen={menu}>
-
        <Navul>
          <Navli>
            <Navhref activeClassName="active-nav" to='/about'>
            About 
-           </Navhref>
-         </Navli >
-         <Navli>
-           <Navhref  activeClassName="active-nav"  to='/work'>
-           Work 
-           </Navhref>
-         </Navli>
-      
-         
-         <Navli>
-           <Navhref  activeClassName="active-nav"  to='/services'>
-           Services 
            </Navhref>
          </Navli>
          <Navli>
@@ -60,7 +54,7 @@ const Navbar = () => {
          </Navli>
        </Navul>
      </Navlinks>
-     <Mobilenav onClick={ () => setMenu(!menu)}>
+     <Mobilenav onClick={handleMenu}>
       <Menumob >
       <Top></Top>
        <Span></Span>
@@ -69,6 +63,10 @@ const Navbar = () => {
      </Mobilenav>
    </Container>
  </Navcover>
+
+{handlePanel&& <Panels />}  </>
+ </AnimatePresence>
+
   )
 }
 
@@ -107,9 +105,10 @@ const Navlinks = styled.div`
 width: 100%;
 height: 100%;
 display: flex;
-justify-content: center;
+justify-content: flex-end;
 align-items: center;
 @media only screen and (max-width: 800px){
+  justify-content: center;
 position: fixed;
 top: 0px;
 right: 0;
@@ -117,6 +116,7 @@ background: ${themes.black};
 width: 100%;
 height: auto;
 padding: 50px 0;
+transition: all 0.5s ease-in;
 transform:${props => (props.isOpen ? "translateY(0%)":"translateY(-100%)")}
 
 }
@@ -183,5 +183,6 @@ height: 5px;
 background: #FFFFFF;
 margin: 3px 0;
 `
+
 
 export default Navbar

@@ -6,8 +6,7 @@ import ni from '../assets/Ni.svg'
 import { themes } from '../styles/ColorStyles'
 import {textCopy,tinyTexts} from '../styles/Textsyles'
 import SearchIcon from '../assets/Search.svg'
-import {motion} from 'framer-motion'
-import {pageAnimation} from '../animation'
+
 import axios from 'axios'
 import { blogUrl } from '../constants'
 const Blog = () => {
@@ -29,7 +28,7 @@ const Blog = () => {
  fetchBlogPost()
   }, [])
   return (
-  <Blogbody variants={pageAnimation} initial="hidden"  exit="exit" animate="show">
+  <Blogbody>
 
 
     <Container>
@@ -63,7 +62,7 @@ const Blog = () => {
   )
 }
 
-const Blogbody = styled(motion.div)`
+const Blogbody = styled.div`
 min-height: 600px;
 width:100%;
 padding: 10px 25px;

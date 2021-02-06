@@ -76,6 +76,8 @@ width: 100%;
 `
 const Businessh1 = styled(headerMedium)`
 color: ${themes.dark};
+padding: 10px 25px;
+
 `
 const Businessbtn = styled.div`
 min-height: 40px;

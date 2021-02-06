@@ -41,6 +41,28 @@ line-height: 1.4;
   font-size: 34px;
 }
 `
+
+
+export const captionHeader = styled.h1`
+font-family: "Euclid-light";
+font-size: 14px;
+font-weight: 300;
+line-height: 1.4;
+@media only screen and (max-width: 650px){
+  font-size: 12px;
+}
+`
+
+export const BodyNew = styled.h1`
+  font-family: "Euclid-light";
+font-size: 33px;
+font-weight: 300;
+line-height: 1.4;
+@media only screen and (max-width: 650px){
+  font-size: 21px;
+}
+
+`
 export const Body = styled.h1`
   font-family: "Euclid-light";
 font-size: 24px;
@@ -55,7 +77,7 @@ line-height: 1.4;
 export const bodyHeader = styled.h1`
  font-family: "Euclid-medium";
 font-size: 24px;
-font-weight: 300;
+font-weight: 500;
 line-height: 1.4;
 @media only screen and (max-width: 650px){
   font-size: 18px;
@@ -85,12 +107,32 @@ line-height: 1.4;
 
 `
 
+export const WorkCopy = styled.h1`
+ font-family: "Euclid-bold";
+font-size: 50px;
+line-height: 1.4;
+@media only screen and (max-width: 650px){
+  font-size: 24px;
+}
+
+`
+
 export const textCopy = styled.h1`
  font-family: "Euclid-medium";
 font-size: 26px;
 line-height: 1.4;
 @media only screen and (max-width: 650px){
   font-size: 18px;
+}
+
+`
+export const smallTexts = styled.h1`
+  font-family: "Euclid-bold";
+  font-weight: 600;
+font-size: 18px;
+line-height: 1.4;
+@media only screen and (max-width: 650px){
+  font-size: 15px;
 }
 
 `

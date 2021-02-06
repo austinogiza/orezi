@@ -2,22 +2,21 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import real from '../assets/A.svg'
 import { themes } from '../styles/ColorStyles'
-import { lightHeader, Body, Header} from '../styles/Textsyles'
+import { Header} from '../styles/Textsyles'
 import Loader from '../Components/Loader'
 import axios from 'axios'
-import {RiMapPin2Fill,RiFacebookFill,RiLinkedinLine,RiTwitterFill} from 'react-icons/ri'
+import {RiMapPin2Fill} from 'react-icons/ri'
 import {MdEmail} from 'react-icons/md'
 import {CgPhone} from 'react-icons/cg'
 import { contactUrl } from '../constants'
 import DELIVERY from '../assets/DELIVERY.png'
-import {motion} from 'framer-motion'
-import {pageAnimation} from '../animation'
+
 const Contact = () => {
 
   const initial={
     name: "",
     email: "",
-    location:"",
+    subject:"",
     message:""
   }
 const [loading,setLoading]= useState(false)
@@ -27,7 +26,7 @@ const [form,setForm] = useState(initial)
 const {
   name,
 email,
-location,
+subject,
 message
 }=form
 
@@ -41,7 +40,7 @@ const onChange = e=>{
     setLoading(true)
     setSent(false)
     axios
-    .post(contactUrl, {name, location, email, message})
+    .post(contactUrl, {name, subject, email, message})
     .then(res=>{
 
       setLoading(false)
@@ -55,12 +54,11 @@ const onChange = e=>{
 
   }
   return (
-<Contactpage variants={pageAnimation} initial="hidden" animate="show"  exit="exit">
+<Contactpage >
 
 <Container>
 {sent? null : <Title>
-<Titleh1>  Feel free to say <span>Hello</span></Titleh1>
-<Titlep>We would love to help you bring that idea , business, brand or products to live. Its our job to worry while you focus on other aspect of your journey</Titlep>
+<Titleh1> Lets Talk</Titleh1>
 </Title>}
 <ContactForm>
 {sent ? <div>
@@ -72,19 +70,20 @@ const onChange = e=>{
 </div>:<div><Form onSubmit={formSubmit}>
 
 <Formrow>
-  <Label>Your name, please</Label>
+  <Label>Full Name</Label>
   <Forminput required  type="text" name="name" value={name} onChange={onChange}/>
 </Formrow>
+
 <Formrow>
-  <Label>Please tell me where you stay</Label>
-  <Forminput  required type="text" name="location" value={location}  onChange={onChange}/>
-</Formrow>
-<Formrow>
-  <Label>Your email, so I can reach out sometime</Label>
+  <Label>Email Address</Label>
   <Forminput required  type="email" name="email" value={email}  onChange={onChange}/>
 </Formrow>
 <Formrow>
-  <Label>So tell me, how can i be of help to you?</Label>
+  <Label>Subject</Label>
+  <Forminput  required type="text" name="subject" value={subject}  onChange={onChange}/>
+</Formrow>
+<Formrow>
+  <Label>Message</Label>
   <Formtextarea  required name="message" value={message}  onChange={onChange}/>
 </Formrow>
 <Formrow>
@@ -112,12 +111,7 @@ const onChange = e=>{
   </Socialicons>
   <Socialtext><a rel="noopener noreferrer" target="_blank"  href="tel:+22200000000">+234 813 787 1513</a></Socialtext>
 </Socialcover>
-<Socialcover>
-  <Socialicons>
-  <a rel="noopener noreferrer" target="_blank" href="thecreativemena.com"><Facebook/></a><a rel="noopener noreferrer" target="_blank" href="thecreativemena.com"><Twitter/></a><a rel="noopener noreferrer" target="_blank" href="thecreativemena.com"><LinkedIn/></a>
-  </Socialicons>
-  <Socialtext>Thecreativemena</Socialtext>
-</Socialcover>
+
 
 </Social>
 
@@ -126,7 +120,7 @@ const onChange = e=>{
   )
 }
 
-const Contactpage = styled(motion.div)`
+const Contactpage = styled.div`
 min-height: 600px;
 width: 100%;
 display: flex;
@@ -152,13 +146,14 @@ justify-content: center;
 margin: 0 0 60px 0;
 text-align: center;
 `
-const Titleh1 = styled(lightHeader)`
+const Titleh1 = styled(Header)`
 margin: 22px 0;
+color: ${themes.yellow};
 span{
   font-weight: 700;
 }
 `
-const Titlep = styled(Body)``
+
 
 const ContactForm = styled.div`
 min-height: 500px;
@@ -179,7 +174,7 @@ width: 100%;
 const Formrow = styled.div`
 min-height: 90px;
 width: 100%;
-margin: 15px 0;
+margin: 16px 0;
 `
 const Label = styled.label`
 
@@ -198,7 +193,7 @@ height: 55px;
 background: transparent;
 margin: 12px 0 0 0;
 color: ${themes.white};
-border: 1px solid ${themes.primary};
+border: 1px solid ${themes.yellow};
 box-sizing: border-box;
 border-radius: 12px;
 font-size: 18px;
@@ -215,7 +210,7 @@ height: 347px;
 
 background: transparent;
 margin: 12px 0 0 0;
-border: 1px solid ${themes.primary};
+border: 1px solid ${themes.yellow};
 box-sizing: border-box;
 border-radius: 12px;
 
@@ -226,9 +221,10 @@ const Formbutton = styled.button`
 max-width: 584px;
 width: 100%;
 height: 74px;
-
-font-size: 35px;
-font-weight: 500;
+background: ${themes.yellow};
+font-size: 20px;
+font-weight: 600;
+color: ${themes.white};
 line-height: 25px;
 letter-spacing: 0em;
 display: flex;
@@ -237,15 +233,14 @@ justify-content: center;
 transition: all 0.3s ease-in;
 :hover{
   border: none;
-  background: ${themes.yellow};
+  background: ${themes.primary};
   color: ${themes.black};
 }
 
-background: ${themes.primary};
-border: 1px solid  ${themes.primary};
 box-sizing: border-box;
-border-radius: 30px;
+border-radius: 12px;
 outline: none;
+border: none;
 
 @media only screen and (max-width: 650px){
 
@@ -254,7 +249,7 @@ font-size: 21px;
 `
 const Social = styled.div`
 display: grid;
-grid-template-columns: repeat(4,1fr);
+grid-template-columns: repeat(3, minmax(10px,1fr));
 grid-gap: 30px;
 width: 100%;
 min-height: 200px;
@@ -276,17 +271,18 @@ a{
 ` 
 const Socialicons = styled.div`
 display: flex;
-flex-direction: row;
 align-items: center;
 justify-content: center;
-width: 100%;
-height: 50px;
+border-radius: 50%;
+height: 40px;
+width: 40px;
 margin: 20px 0;
+border: 1px solid ${themes.yellow};
 ` 
 const Map = styled(RiMapPin2Fill)`
-width: 24px;
-height: 24px;
-color: ${themes.primary};
+width: 18px;
+height: 18px;
+color: ${themes.yellow};
 ` 
 const Socialtext = styled.p`
 
@@ -299,33 +295,19 @@ text-align: center;
 ` 
 
 const Email = styled(MdEmail)`
-width: 24px;
-height: 24px;
-color: ${themes.primary};
+width: 18px;
+height: 18px;
+color: ${themes.yellow};
 `
 const Phone = styled(CgPhone)`
 
-width: 24px;
-height: 24px;
-color: ${themes.primary};
+width: 18px;
+height: 18px;
+color: ${themes.yellow};
 
 `
-const Facebook = styled(RiFacebookFill)`
-width: 24px;
-height: 24px;
-color: ${themes.primary};
-`
-const Twitter = styled(RiTwitterFill)`
-width: 24px;
-height: 24px;
-color: ${themes.primary};
-margin: 0 22px;
-`
-const LinkedIn = styled(RiLinkedinLine)`
-width: 24px;
-height: 24px;
-color: ${themes.primary};
-`
+
+
 
 const Deliverytitle = styled.div`
 width: 100%;

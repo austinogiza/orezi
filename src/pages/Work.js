@@ -4,15 +4,13 @@ import { bodyHeader, lightHeader,bodyText } from '../styles/Textsyles'
 import inv from '../assets/Inv.svg'
 import ni from '../assets/Ni.svg'
 import {BsArrowRight} from  'react-icons/bs'
-
-import pic from '../assets/pic.png'
+import pic from '../assets/projectsmall.png'
 import bla from '../assets/bla.png'
 import { Link } from 'react-router-dom'
-import {motion} from 'framer-motion'
-import {pageAnimation} from '../animation'
+
 const Work = () => {
   return (
-   <Workbody  variants={pageAnimation} initial="hidden"  exit="exit" animate="show">
+   <Workbody>
      <Container>
        <Title><Titleh1>My Work</Titleh1></Title>
 
@@ -86,7 +84,7 @@ us solve this and that</Projecttext>
    </Workbody>
   )
 }
-const Workbody = styled(motion.div)`
+const Workbody = styled.div`
 min-height: 600px;
 width:100%;
 padding: 10px 25px;
@@ -188,7 +186,10 @@ display: grid;
 grid-template-columns: repeat(3,1fr);
 grid-gap: 56px;
 grid-auto-rows:350px;
-
+@media only screen and (max-width: 800px){
+  grid-template-columns: repeat(2,1fr);
+  grid-gap: 22px;
+}
 @media only screen and (max-width: 650px){
   grid-template-columns: repeat(1,1fr);
   grid-auto-rows:250px;
