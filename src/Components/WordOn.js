@@ -133,7 +133,7 @@ const Role = styled(Body)`
 color: ${themes.primary};`
 const Slidecontrol = styled.div`
 width: 100%;
-height: 100%;
+height: 100px;
 display: flex;
 flex-direction: row;
 justify-content: center;

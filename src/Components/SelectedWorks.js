@@ -7,14 +7,15 @@ import work3 from '../assets/work3.png'
 import work4 from '../assets/work4.png'
 import { themes } from '../styles/ColorStyles'
 import { Link } from 'react-router-dom'
-import {  gsap, Power2} from 'gsap'
+import {  gsap, Power2, ScrollTrigger} from 'gsap/all'
 import { motion } from 'framer-motion'
 
 const SelectedWorks = () => {
   const transition = {duration: 0.6, ease: [0.43, 0.13, 0.23, 0.6]}
+gsap.registerPlugin(ScrollTrigger)
 
-
-const tl =gsap.timeline()
+const tl =gsap.timeline({ paused: true,
+  scrollTrigger: '.container'})
 const scroll =()=>{
 
   tl.to(".container", 1, { css: { visibility: "visible" }})
