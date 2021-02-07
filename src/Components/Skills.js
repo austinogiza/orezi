@@ -84,7 +84,10 @@ align-items: flex-start;
 const Skilltop = styled.div`
 height: 100%;
 width: 100%;
+@media only screen and (max-width: 650px){
+height: 350px;
 
+}
 `
 const Skillcover = styled.div`
 height: 100%;
@@ -95,6 +98,7 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: flex-start;
+margin: 16px 0;
 ::after{
 background: rgba(0,0,0,0.4);
 position: absolute;
@@ -105,7 +109,7 @@ width: 100%;
 height: 100%;
 }
 @media only screen and (max-width: 800px){
-min-height: 350px;
+min-height: 300px;
 width: 100%;
 height: 100%;
 }
@@ -144,7 +148,7 @@ grid-gap: 12px;
 height: 100%;
 grid-auto-rows: minmax(250px,auto);
 margin-top: 24px;
-@media only screen and (max-width: 800px){
+@media only screen and (max-width: 650px){
   grid-template-columns: repeat(1,1fr);
   min-height: 300px;
 }
@@ -152,5 +156,10 @@ margin-top: 24px;
 const Skillmini = styled.div`
 height: 100%;
 width: 100%;
+
+@media only screen and (max-width: 650px){
+height: 350px;
+
+}
 `
 export default Skills

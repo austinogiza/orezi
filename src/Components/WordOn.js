@@ -101,7 +101,10 @@ flex-direction: column;
 margin: 32px 0;
 
 `
-const Slidetext = styled(Body)``
+const Slidetext = styled(Body)`
+height: 100%;
+width: 100%;
+`
 const Slidebottom = styled.div`
 display: flex;
 width: 100%;
