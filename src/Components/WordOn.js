@@ -108,7 +108,7 @@ width: 100%;
 const Slidebottom = styled.div`
 display: flex;
 width: 100%;
-height: 100%;
+min-height: 100px;
 display: grid;
 grid-template-columns: repeat(2,1fr);
 justify-content: center;
