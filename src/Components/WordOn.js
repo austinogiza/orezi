@@ -111,6 +111,7 @@ grid-template-columns: repeat(2,1fr);
 justify-content: center;
 align-items: center;
 grid-gap: 24px;
+grid-auto-rows: minmax(250px,auto);
 @media only screen and (max-width: 650px){
   grid-template-columns: repeat(1,1fr);
   grid-gap: 12px;

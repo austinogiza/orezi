@@ -153,15 +153,6 @@ visibility: hidden;
   grid-template-columns: repeat(1,1fr);
 }
 
-/* .img-container::after{
-position:absolute;
-content: "";
-top:0;
-left: 0;
-width: 100%;
-height: 100%;
-background: ${themes.yellow};
-} */
 `
 const Works = styled.div`
 position: relative;

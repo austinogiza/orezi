@@ -84,12 +84,7 @@ align-items: flex-start;
 const Skilltop = styled.div`
 height: 100%;
 width: 100%;
-min-height: 500px;
-@media only screen and (max-width: 800px){
 
-  min-height: 350px;
-  height: 100%;
-}
 `
 const Skillcover = styled.div`
 height: 100%;
@@ -147,16 +142,15 @@ display: grid;
 grid-template-columns: repeat(2,1fr);
 grid-gap: 12px;
 height: 100%;
+grid-auto-rows: minmax(250px,auto);
 margin-top: 24px;
 @media only screen and (max-width: 800px){
   grid-template-columns: repeat(1,1fr);
-  min-height: 350px;
+  min-height: 300px;
 }
 `
 const Skillmini = styled.div`
 height: 100%;
 width: 100%;
-min-height: 300px;
-
 `
 export default Skills
