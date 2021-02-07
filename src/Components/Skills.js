@@ -145,7 +145,6 @@ width: 100%;
 display: grid;
 grid-template-columns: repeat(2,1fr);
 grid-gap: 12px;
-height: 100%;
 grid-auto-rows: minmax(250px,auto);
 margin-top: 24px;
 @media only screen and (max-width: 650px){
@@ -154,12 +153,9 @@ margin-top: 24px;
 }
 `
 const Skillmini = styled.div`
-height: 100%;
 width: 100%;
-
 @media only screen and (max-width: 650px){
 height: 350px;
-
 }
 `
 export default Skills
