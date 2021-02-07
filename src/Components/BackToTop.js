@@ -49,7 +49,7 @@ border-radius: 50%;
 background: ${themes.yellow};
 display: ${props => props.scrolled ? "block": 'none'};
 position: fixed;
-bottom: 50px;
+bottom: 30px;
 right: 30px;
 z-index: 1000;
 transition: all 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);

@@ -15,12 +15,12 @@ const Navbar = () => {
 const handleMenu = ()=>{
   setHandlePanel(true)
   setMenu(!menu)
-  setHandlePanel(true)
 }
   
 
   useEffect(() => {
     setMenu(false)
+
   }, [location])
   return (
 
@@ -64,7 +64,7 @@ const handleMenu = ()=>{
    </Container>
  </Navcover>
 
-{handlePanel&& <Panels />}  </>
+{handlePanel && <Panels />}  </>
  </AnimatePresence>
 
   )

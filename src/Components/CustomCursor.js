@@ -10,11 +10,14 @@ const CustomCursor = () => {
   })
 
   const onMouseMove = e =>{
-    const {pageX:x, pageY:y}=e;
+    const {pageX:x, pageY:y} = e;
     setMousePosition({x,y})
   }
+
+
 useEffect(() => {
   document.addEventListener('mousemove', onMouseMove)
+
   return () => {
     document.removeEventListener('mousemove', onMouseMove)
   }
@@ -36,9 +39,9 @@ width: 40px;
 height: 40px;
 border: 1px solid ${themes.white};
 pointer-events: none;
-transition: all 0.1s ease-ease-in-out;
+transition: all 0.2s ease-ease-in-out;
 border-radius: 100%;
-transform: translate(-50%,-50%);
+transform: translate(-30%,-30%);
 z-index: 999;
 transition-property: width, height, border;
 will-change: width, height, border;

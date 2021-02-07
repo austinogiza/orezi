@@ -47,13 +47,14 @@ const Skills = () => {
 
 
 const Skillsbody = styled.div`
-min-height: 1100px;
+min-height: 1000px;
+height: 100%;
 width: 100%;
 display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
-margin: 96px 0;
+margin: 48px 0;
 max-width: 1100px;
 padding: 0 15px;
 `
@@ -73,7 +74,7 @@ const Titleh1 = styled(Header)`
 
 `
 const Skillset = styled.div`
-min-height: 1000px;
+min-height: 500px;
 width: 100%;
 display: flex;
 flex-direction: column;
@@ -87,14 +88,14 @@ min-height: 500px;
 @media only screen and (max-width: 800px){
 
   min-height: 350px;
+  height: 100%;
 }
 `
 const Skillcover = styled.div`
 height: 100%;
 width: 100%;
-min-height: 500px;
+min-height: 400px;
 position: relative;
-
 display: flex;
 flex-direction: column;
 justify-content: center;
@@ -109,8 +110,9 @@ width: 100%;
 height: 100%;
 }
 @media only screen and (max-width: 800px){
-
 min-height: 350px;
+width: 100%;
+height: 100%;
 }
 `
 
@@ -154,5 +156,7 @@ margin-top: 24px;
 const Skillmini = styled.div`
 height: 100%;
 width: 100%;
+min-height: 300px;
+
 `
 export default Skills

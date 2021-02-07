@@ -28,7 +28,7 @@ started when you see this, lets finish what you started.  That idea, business, b
     <SelectedWorks/>
     <Skills/>
       <Business/>
-      {/* <Testimonials/> */}
+    
       <Resume/>
   </Homebody>
   )
@@ -39,7 +39,7 @@ min-height: 800px;
 width: 100%;
 display: flex;
 flex-direction: column;
-
+overflow-x: hidden !important;
 align-items: center;
 justify-content: center;
 background-image: url(${real});
@@ -64,8 +64,7 @@ flex-direction: column;
 align-items: flex-start;
 justify-content: flex-start;
 padding: 10px 25px;
-
-
+min-height: 400px;
 `
 const Orezi = styled.div`
 grid-area: text;

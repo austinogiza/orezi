@@ -8,16 +8,19 @@ import work4 from '../assets/work4.png'
 import { themes } from '../styles/ColorStyles'
 import { Link } from 'react-router-dom'
 import {  gsap, Power2} from 'gsap'
-
+import { motion } from 'framer-motion'
 
 const SelectedWorks = () => {
+  const transition = {duration: 0.6, ease: [0.43, 0.13, 0.23, 0.6]}
 
 
 const tl =gsap.timeline()
 const scroll =()=>{
 
   tl.to(".container", 1, { css: { visibility: "visible" }})
-    .from(".photo",1.4, { scale:1.6, ease:Power2.easeInOut, delay: -1.6 } )
+    .from(".photo", 1.4, { scale:1.4, ease: Power2.easeInOut, delay: -1.6, stagger:{
+      amount: 0.4
+    } } )
 }
 
   useEffect(() => {
@@ -39,19 +42,19 @@ scroll()
 
      <SelectedProjects onScroll={scroll} className="container"  >
        <Works className="img-container" >
-         <Image src={work1} className="photo" alt="The creative mena projects"/>
+         <Image whileHover={{ scale : 1.1}} transition={transition} src={work1} className="photo" alt="The creative mena projects"/>
          <Worktitle />
        </Works>
        <Works className="img-container"  >
-  <Image src={work2}  className="photo" alt="The creative mena projects"/>
+  <Image src={work2}  whileHover={{ scale : 1.1}}  transition={transition}  className="photo" alt="The creative mena projects"/>
   <Worktitle />
        </Works>
        <Works className="img-container">
-   <Image src={work3} className="photo" alt="The creative mena projects"/>
+   <Image src={work3} whileHover={{ scale: 1.1}}  transition={transition}  className="photo" alt="The creative mena projects"/>
    <Worktitle />
        </Works>
        <Works  className="img-container"  >
-    <Image src={work4}  className="photo" alt="The creative mena projects"/>
+    <Image src={work4} whileHover={{scale:1.1}}  transition={transition}  className="photo" alt="The creative mena projects"/>
     <Worktitle />
        </Works>
      </SelectedProjects>
@@ -62,13 +65,20 @@ scroll()
 
 const Selectbody = styled.div`
 padding:10px 25px;
-min-height: 600px;
+min-height: 400px;
 width: 100%;
 display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: flex-start;
-margin: 96px 0;`
+margin: 48px 0;
+
+@media only screen and (max-width : 650px){
+  margin: 16px 0;
+}
+
+`
+
 const Title = styled.div`
 min-height: 100px;
 width: 100%;
@@ -78,6 +88,10 @@ justify-content: space-between;
 align-items: center;
 margin: 32px auto;
 max-width: 1100px;
+
+@media only screen and (max-width : 650px){
+  flex-direction: column;
+}
 
 `
 const TitleTxt = styled.div`
@@ -128,15 +142,15 @@ transition: all 0.4s ease-in;
 
 `
 const SelectedProjects = styled.div`
-min-height: 600px;
+min-height: 400px;
+height: 100%;
 width: 100%;
 display: grid;
 grid-template-columns: repeat(4,1fr);
 grid-gap: 13px;
 visibility: hidden;
-@media only screen and (max-width:800px){
+@media only screen and (max-width: 800px){
   grid-template-columns: repeat(1,1fr);
-
 }
 
 /* .img-container::after{
@@ -157,10 +171,9 @@ position: relative;
 
 }
 `
-const Image = styled.img`
+const Image = styled(motion.img)`
 height: 100%;
 width: 100%;
-
 `
 const Worktitle = styled(Link)`
 position: absolute;

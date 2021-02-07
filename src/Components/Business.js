@@ -15,7 +15,7 @@ const Business = () => {
  <Businesscover>
 
  <BusinessTitle>
-    <Businessh1>I would love to help you bring that idea , business, brand or products to live. </Businessh1>
+    <Businessh1>I would love to help you bring that idea, business, brand or products to live. </Businessh1>
   </BusinessTitle>
 
   <Businessbtn>
@@ -43,7 +43,6 @@ const Business = () => {
 }
 
 const Businessbody = styled.div`
-
 background: ${themes.yellow};
 display: flex;
 justify-content: center;
@@ -54,7 +53,8 @@ background-image: url(${ballon2}),url(${ballon1});
 background-size: 25%,25%;
 background-position: top -30px left 0%, bottom -20% right 0%;
 background-repeat: no-repeat, no-repeat;
-
+height: 100%;
+margin: 16px 0; 
 @media only screen and (max-width: 600px){
   min-height: 500px;
 }

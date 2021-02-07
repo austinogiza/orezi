@@ -10,6 +10,7 @@
 html {
   cursor: none;
   scroll-behavior: smooth;
+  overflow-x: hidden !important;
 }
 
 body {
@@ -20,6 +21,7 @@ body {
   font-family: "Inter", sans-serif;
   color: #ffffff;
   cursor: none;
+  scroll-behavior: smooth;
 }
 
 li {
