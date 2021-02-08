@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState} from 'react'
 import styled from 'styled-components'
 import inv from '../assets/Inv.svg'
 import ni from '../assets/Ni.svg'
@@ -6,28 +6,44 @@ import pic from '../assets/pic.png'
 import { Body,bodyHead,Header,bodyText,textCopy,tinyTexts } from '../styles/Textsyles'
 import {FaFacebookF,FaTwitter,FaLinkedinIn} from 'react-icons/fa'
 import { themes } from '../styles/ColorStyles'
-import { Link, } from 'react-router-dom'
-// import { blogPostUrl } from '../constants'
+import { Link, useParams, } from 'react-router-dom'
+import { blogPostUrl,tagUrl } from '../constants'
 import axios from 'axios'
 
 
 const BlogDetails = () => {
-// const {slug} = useParams();
-const [post,setPost] = useState(null)
+
+  const {slug} = useParams();
+  const [post,setPost] = useState(null)
+  const [tags, setTags]=useState(null)
 
   const fetchPost = ()=>{
 axios
-// .get(blogPostUrl(slug))
+.get(blogPostUrl(slug))
 .then(res=>{
   setPost(res.data)
 })
 .catch(err=>{
 
 })
+
+  }
+
+
+  const fetchTags =()=>{
+    axios
+  .get(tagUrl(slug))
+  .then(res=>{
+    setTags(res.data)
+    console.log(tags)
+  })
+  .catch(err=>{
+  
+  })
   }
   useEffect(() => {
     fetchPost()
-   
+    fetchTags()
   }, [])
 
   return (

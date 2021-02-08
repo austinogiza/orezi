@@ -1,14 +1,111 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import styled,{keyframes} from 'styled-components'
 import { bodyHeader, lightHeader,bodyText } from '../styles/Textsyles'
 import inv from '../assets/Inv.svg'
 import ni from '../assets/Ni.svg'
 import {BsArrowRight} from  'react-icons/bs'
-import pic from '../assets/projectsmall.png'
-import bla from '../assets/bla.png'
+import PageLoading from '../Components/PageLoading'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
+import { workUrl,workProductUrl,workflyerUrl,workpackageUrl, workcommunicationUrl, workcampaignUrl} from '../constants'
+import { themes } from '../styles/ColorStyles'
 
 const Work = () => {
+  const [works, setWorks] = useState([])
+  const [loading, setLoading] = useState(false)
+
+
+ useEffect(() => {
+async function fetchWork(){
+  setLoading(true)
+  const res = await axios.get(workUrl)
+  console.log(res)
+  setWorks(res.data)
+  setLoading(false)
+} 
+fetchWork()
+ }, [])
+
+ const handleSelect = e =>{
+
+ 
+   let word = e.target.value;
+   console.log(word)
+
+     console.log(word)
+   if (word === "All"){
+    setLoading(true)
+    axios
+    .get(workUrl)
+    .then(res=>{
+      setWorks(res.data)
+      setLoading(false)
+    })
+   
+   }
+   else if(word ==="Product Design"){
+    setLoading(true)
+    axios
+    .get(workProductUrl)
+    .then(res=>{
+      setWorks(res.data)
+      setLoading(false)
+    })
+    
+   
+   }
+   else if(word ==="Branding Identity"){
+    setLoading(true)
+    axios
+    .get(workflyerUrl)
+    .then(res=>{
+      setWorks(res.data)
+      setLoading(false)
+    })
+    
+   
+   }
+   else if(word ==="Package"){
+    setLoading(true)
+    axios
+    .get(workpackageUrl)
+    .then(res=>{
+      setWorks(res.data)
+      setLoading(false)
+    })
+
+   }
+   else if(word ==="Communication"){
+    setLoading(true)
+    axios
+    .get(workcommunicationUrl)
+    .then(res=>{
+      setWorks(res.data)
+        setLoading(false)
+    })
+   }
+   else if(word ==="Campaign"){
+    setLoading(true)
+    axios
+    .get(workcampaignUrl)
+    .then(res=>{
+      setWorks(res.data)
+        setLoading(false)
+    })
+    
+   }
+
+   else if(word ==="Flyers"){
+    setLoading(true)
+    axios
+    .get(workProductUrl)
+    .then(res=>{
+      setWorks(res.data)
+      setLoading(false)
+    })
+   }
+ }
+
   return (
    <Workbody>
      <Container>
@@ -20,63 +117,56 @@ const Work = () => {
          <Show>Showing <Showicon/></Show>
          <Workcategory>
            <Workul>
-             <Workli>All</Workli>
-             <Workli>Branding Identity</Workli>
-             <Workli>Product Design</Workli>
-             <Workli>Package</Workli>
-             <Workli>Communication</Workli>
-             <Workli>Campaign</Workli>
-             <Workli>Flyers</Workli>
+             <Workli value="All" onClick={handleSelect}>All</Workli>
+             <Workli value="Branding Identity" onClick={handleSelect}>Branding Identity</Workli>
+             <Workli value="Product Design" onClick={handleSelect}>Product Design</Workli>
+             <Workli value="Package" onClick={handleSelect}>Package</Workli>
+             <Workli value="Communication" onClick={handleSelect}>Communication</Workli>
+             <Workli value="Campaign" onClick={handleSelect}>Campaign</Workli>
+             <Workli value="Flyers" onClick={handleSelect}>Flyers</Workli>
            </Workul>
            <MobileWorkul>
-             <Workli>All</Workli>
+            <Mobilelist>
+         <Mobileselect>
+         <Select onChange={handleSelect}>
+               <Options selected value="All">All</Options>
+               <Options value="Branding Identity"  >Branding Identity</Options>
+               <Options value="Product Design">Product Design</Options>
+               <Options value="Package" >Package</Options>
+               <Options value="Communication">Communication</Options>
+               <Options value="Campaign" >Campaign</Options>
+               <Options value="Flyers" >Flyers</Options>
+               
+             </Select>
+         </Mobileselect>
          
+            </Mobilelist>
            </MobileWorkul>
          
          </Workcategory>
        </Filtertitle>
+       {loading&& <Pagecenter><PageLoading/></Pagecenter>}
 <Projects>
 
-  <Projectcover>
- <Projectimg src={pic} alt="The creative mena project" />
-  <Projectlink />
+
+{works.length > 0 ? works.map(work=>{
+    return (
+
+  
+  <Projectcover  key={work.id} >
+  <Projectimg src={work.image} alt="The creative mena project" />
+<Projecttitle>{work.title}</Projecttitle>
+<Projecttext>{work.brief}</Projecttext>
+<Projectlink to={`/work/${work.slug}`} />
   </Projectcover>
-  <Projectcover>
- <Projectimg  src={bla} alt="The creative mena project"/>
-<Projecttitle>Kinikan KiniKan - Brand 
-Identity Design</Projecttitle>
-<Projecttext>Creating a brand that helps
-us solve this and that</Projecttext>
-  <Projectlink />
-  </Projectcover>
-  <Projectcover>
- <Projectimg src={pic} alt="The creative mena project" />
-  <Projectlink />
-  </Projectcover>
-  <Projectcover>
- <Projectimg src={pic} alt="The creative mena project" />
-  <Projectlink />
-  </Projectcover>
-  <Projectcover>
- <Projectimg src={pic} alt="The creative mena project" />
-  <Projectlink />
-  </Projectcover>
-  <Projectcover>
- <Projectimg src={pic} alt="The creative mena project" />
-  <Projectlink />
-  </Projectcover>
-  <Projectcover>
- <Projectimg src={pic} alt="The creative mena project" />
-  <Projectlink />
-  </Projectcover>
-  <Projectcover>
- <Projectimg src={pic} alt="The creative mena project" />
-  <Projectlink />
-  </Projectcover>
-  <Projectcover>
- <Projectimg src={pic} alt="The creative mena project" />
-  <Projectlink />
-  </Projectcover>
+  )
+  }): <div>
+
+    <Producterror>
+      No project available
+    </Producterror>
+  </div>}
+
   
 </Projects>
        </Workfilter>
@@ -120,7 +210,45 @@ const Workfilter = styled.div`
 min-height: 100px;
 width: 100%;
 `
+const Mobileselect = styled.div`
+min-height: 100px;
+width: 100%;
+`
+const Select = styled.select`
+max-width: 150px;
+height: 44px;
+width: 100%;
+font-family: "Euclid-light";
+font-size: 17px;
+font-weight: 400;
+line-height: 1.4;
+padding: 5px;
+border: 1px solid ${themes.black};
+outline: none;
+border-radius: 5px;
+appearance: none;
+--webkit-appearance: none;
+--moz-appearance: none;
 
+background-image: url('data:image/svg+xml;utf8,<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 9L12 15L18 9" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+background-repeat: no-repeat;
+background-position: right 5px top 40%;
+background-size: 15%;
+:focus{
+  border: 1px solid ${themes.yellow};
+}
+:active{
+  border: 1px solid ${themes.yellow};
+}
+`
+const Options = styled.option`
+font-family: "Euclid-light";
+font-size: 17px;
+font-weight: 400;
+line-height: 1.4;
+background: ${themes.yellow};
+color: ${themes.dark};
+`
 const Filtertitle = styled.div`
 display: flex;
 margin: 50px 0;
@@ -138,6 +266,28 @@ line-height: 1.4;
 @media only screen and (max-width: 650px){
   font-size: 17px;
 }
+`
+const Producterror = styled.div`
+width: 100%;
+height: 100px;
+display: flex;
+align-items: center;
+justify-content: center;
+
+font-family: "Euclid-bold";
+font-size: 32px;
+line-height: 1.4;
+@media only screen and (max-width: 650px){
+  font-size: 21px;
+}
+`
+
+const Pagecenter = styled.div`
+width: 100%;
+height: 100px;
+display: flex;
+align-items: center;
+justify-content: center;
 `
 const Showicon = styled(BsArrowRight)`
 margin: 0 0 0 16px;
@@ -159,20 +309,36 @@ justify-content: flex-start;
 `
 const MobileWorkul = styled.ul`
 display: none;
+width: 100%;
+height: 100%;
 @media only screen and (max-width: 650px){
 
 display: block;
 }
 `
+const Mobilelist = styled.div`
+width: 100%;
+height: 100px;
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+justify-content: center;
+`
 
 
-const Workli = styled.li`
+const Workli = styled.button`
 margin: 0 15px;
+border: none;
+background: transparent;
+outline: none;
 font-family: "Euclid-medium";
 font-size: 20px;
 width: 100%;
 font-weight: 400;
+color: ${themes.white};
+cursor: pointer;
 line-height: 1;
+height: 20px;
 @media only screen and (max-width: 650px){
   font-size: 17px;
 

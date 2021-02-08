@@ -8,11 +8,29 @@ import {textCopy,tinyTexts} from '../styles/Textsyles'
 import SearchIcon from '../assets/Search.svg'
 
 import axios from 'axios'
-import { blogUrl } from '../constants'
+import { blogUrl, searchUrl } from '../constants'
 const Blog = () => {
 
-  const [blog,setBlog] = useState(null)
+  const [blog,setBlog] = useState([])
+const [search, setSearch] = useState("")
 
+const handleChange = e=> {
+  setSearch(e.target.value)
+}
+
+const handleSubmit = e =>{
+  e.preventDefault();
+
+  axios
+  .get(searchUrl(search))
+  .then(res=>{
+    console.log(res.data)
+    // setBlog(res.data)
+  }).catch(err=>{
+
+  })
+
+}
   const fetchBlogPost =()=>{
     axios
     .get(blogUrl)
@@ -34,12 +52,12 @@ const Blog = () => {
     <Container>
 
       <Search>
-<Searchform>
-  <Searchinput placeholder="Search blog" />
+<Searchform onSubmit={handleSubmit}>
+  <Searchinput onChange={handleChange} name="search" value={search} placeholder="Search blog" />
 </Searchform>
       </Search>
       <Blogcover>
-      {blog && blog.map((blog)=>{
+      {blog.length>0 && blog.map(blog =>{
         return(
   
 <Blogpost key={blog.id}>

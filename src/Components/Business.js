@@ -19,7 +19,7 @@ const Business = () => {
   </BusinessTitle>
 
   <Businessbtn>
-    <Businessbutton>
+    <Businessbutton to='/contact'>
     Work With Me
     </Businessbutton>
 
