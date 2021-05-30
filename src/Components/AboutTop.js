@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import {Header, Body } from '../styles/Textsyles'
-import orezi from '../assets/orezipic.png'
+
 import { themes } from '../styles/ColorStyles'
 import { resumeButtonNew } from '../styles/Button'
 const AboutTop = () => {
@@ -10,7 +10,7 @@ const AboutTop = () => {
   <Section>
 
 <Exploreimg>
-  <Image  src={orezi} alt="The Creative Mena"  />
+  <Image  src="https://res.cloudinary.com/dimrd8ott/image/upload/v1622341236/orezipic_dcnkwi.png" alt="The Creative Mena"  />
     
 </Exploreimg>
 <Explore><RightH2>I’m Onofua L.
@@ -67,7 +67,9 @@ text-align: left;
 const Exploreimg =styled.div`
 height: 100%;
 width: 100%;
-
+img{
+  border-top-left-radius: 50px;
+}
 `
 const Explore =styled.div`
 

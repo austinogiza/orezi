@@ -10,7 +10,7 @@ align-items: center;
 width: 100%;
 max-width: 280px;
 height: 74px;
-background: ${themes.primary};
+background: ${themes.yellow};
 border-radius: 23px;
 font-size: 35px;
 font-weight: 500;
@@ -19,7 +19,7 @@ text-align: center;
 transition: all 0.3s ease-in;
 
 :hover{
-  background: ${themes.yellow};
+  background: ${themes.primary};
   color: ${themes.black};
 }
 
@@ -123,7 +123,7 @@ background: ${themes.yellow};
 border-radius: 23px;
 font-size: 24px;
 font-weight: 500;
-color: ${themes.primary};
+color: ${themes.black};
 text-align: center;
 transition: all 0.3s ease-in;
 

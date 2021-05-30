@@ -43,6 +43,11 @@ const handleMenu = ()=>{
            </Navhref>
          </Navli>
          <Navli>
+           <Navhref activeClassName="active-nav" to='/work'>
+           My Work 
+           </Navhref>
+         </Navli>
+         <Navli>
            <Navhref   activeClassName="active-nav" to='/blog'>
            Blog 
            </Navhref>

@@ -3,19 +3,19 @@ import styled from 'styled-components'
 import { resumeButton } from '../styles/Button'
 import { themes } from '../styles/ColorStyles'
 import { headerMedium,Body } from '../styles/Textsyles'
-import toy from '../assets/toy.png'
+
 const Resume = () => {
   return (
     <Resumebody>
       <Container>
         <ResumeImage>
-          <Image src={toy} alt="Creative Mena"/>
+          <Image src="https://res.cloudinary.com/dimrd8ott/image/upload/v1622341340/toy_vz7bsy.png" alt="Creative Mena"/>
         </ResumeImage>
         <Resumecontainer>
           <Resumetitle>
           <Resumedesc><Resumecov>PDF</Resumecov></Resumedesc>
-          <Resumeh1>Download My Resume</Resumeh1></Resumetitle>
-          <Resumetext><Resumep>The creative mena isn’t all talk, I have experience to back it up</Resumep></Resumetext>
+          <Resumeh1>Check out my résume.</Resumeh1></Resumetitle>
+          <Resumetext><Resumep>I'm The Creative Mena, the creative genius you need. I'm not just talk, I've got the experience to back it up. </Resumep></Resumetext>
           <Resumebutton>
             <Resumebtn>Download</Resumebtn>
           </Resumebutton>
@@ -46,8 +46,7 @@ grid-template-columns: auto 450px;
 `
 const ResumeImage = styled.div`
 width:100%;
-min-height: 530px;
-margin: 49px 0 0 0;
+height:100%;
 @media only screen and (max-width:768px){
   min-height: 300px;
 }

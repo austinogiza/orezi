@@ -13,13 +13,13 @@ const WorkWith = () => {
   
 <Workleft>
      <Worktitle><Workh1>Get in touch</Workh1></Worktitle>
-     <Worktext><Workp>I would love to help you bring that idea, business, brand or products to live. Its our job to worry while you focus on other aspect of your journey</Workp></Worktext>
+     <Worktext><Workp>I can help you bring that idea, business, brand, product to life. Let me worry about the visual & aspect, while you focus on other aspects of your journey. </Workp></Worktext>
     <Workbutton> <Workbtn to='/contact'>Contact Me</Workbtn></Workbutton>
     <Workicons>
   <Iconscover>  
-  <a href="http" target="_blank"  rel="noopener noreferrer"><Iconswrapper><Behance/></Iconswrapper></a>
-      <a href="http" target="_blank"   rel="noopener noreferrer">  <Iconswrapper><Twitter/></Iconswrapper></a>
-      <a href="http" target="_blank"   rel="noopener noreferrer"> <Iconswrapper><Instagram/></Iconswrapper></a>
+  <a href="https://www.behance.net/creativemena" target="_blank"  rel="noopener noreferrer"><Iconswrapper><Behance/></Iconswrapper></a>
+      <a href="https://twitter.com/Thecreativemena" target="_blank"   rel="noopener noreferrer">  <Iconswrapper><Twitter/></Iconswrapper></a>
+      <a href="https://www.instagram.com/thecreativemena/" target="_blank"   rel="noopener noreferrer"> <Iconswrapper><Instagram/></Iconswrapper></a>
       </Iconscover>
     </Workicons>
    </Workleft>

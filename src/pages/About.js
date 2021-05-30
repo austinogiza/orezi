@@ -9,7 +9,13 @@ import WhatIDo from '../Components/WhatIDo'
 import Client from '../Components/Client'
 import MyWork from '../Components/MyWork'
 import WordOn from '../Components/WordOn'
+
 const About = () => {
+
+
+  
+
+
 
   return (
   <AboutPage >

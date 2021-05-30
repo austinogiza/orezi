@@ -7,22 +7,27 @@ import {BsArrowRight} from  'react-icons/bs'
 import PageLoading from '../Components/PageLoading'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
-import { workUrl,workProductUrl,workflyerUrl,workpackageUrl, workcommunicationUrl, workcampaignUrl} from '../constants'
+import { workUrl,workProductUrl,workbrandUrl} from '../constants'
 import { themes } from '../styles/ColorStyles'
 
 const Work = () => {
   const [works, setWorks] = useState([])
   const [loading, setLoading] = useState(false)
+const fetchWork =()=>{
+  setLoading(true)
+  axios.get(workUrl)
+  .then(res=>{
+    setWorks(res.data)
+    setLoading(false)
+  })
+  .catch(err=>{
+    setLoading(false)
 
+  })
+}
 
  useEffect(() => {
-async function fetchWork(){
-  setLoading(true)
-  const res = await axios.get(workUrl)
-  console.log(res)
-  setWorks(res.data)
-  setLoading(false)
-} 
+
 fetchWork()
  }, [])
 
@@ -54,10 +59,10 @@ fetchWork()
     
    
    }
-   else if(word ==="Branding Identity"){
+   else if(word ==="Cooperate Design"){
     setLoading(true)
     axios
-    .get(workflyerUrl)
+    .get(workbrandUrl)
     .then(res=>{
       setWorks(res.data)
       setLoading(false)
@@ -65,45 +70,8 @@ fetchWork()
     
    
    }
-   else if(word ==="Package"){
-    setLoading(true)
-    axios
-    .get(workpackageUrl)
-    .then(res=>{
-      setWorks(res.data)
-      setLoading(false)
-    })
 
-   }
-   else if(word ==="Communication"){
-    setLoading(true)
-    axios
-    .get(workcommunicationUrl)
-    .then(res=>{
-      setWorks(res.data)
-        setLoading(false)
-    })
-   }
-   else if(word ==="Campaign"){
-    setLoading(true)
-    axios
-    .get(workcampaignUrl)
-    .then(res=>{
-      setWorks(res.data)
-        setLoading(false)
-    })
-    
-   }
 
-   else if(word ==="Flyers"){
-    setLoading(true)
-    axios
-    .get(workProductUrl)
-    .then(res=>{
-      setWorks(res.data)
-      setLoading(false)
-    })
-   }
  }
 
   return (
@@ -118,24 +86,18 @@ fetchWork()
          <Workcategory>
            <Workul>
              <Workli value="All" onClick={handleSelect}>All</Workli>
-             <Workli value="Branding Identity" onClick={handleSelect}>Branding Identity</Workli>
+             <Workli value="Cooperate Design" onClick={handleSelect}>Cooperate Design</Workli>
              <Workli value="Product Design" onClick={handleSelect}>Product Design</Workli>
-             <Workli value="Package" onClick={handleSelect}>Package</Workli>
-             <Workli value="Communication" onClick={handleSelect}>Communication</Workli>
-             <Workli value="Campaign" onClick={handleSelect}>Campaign</Workli>
-             <Workli value="Flyers" onClick={handleSelect}>Flyers</Workli>
+        
            </Workul>
            <MobileWorkul>
             <Mobilelist>
          <Mobileselect>
          <Select onChange={handleSelect}>
                <Options selected value="All">All</Options>
-               <Options value="Branding Identity"  >Branding Identity</Options>
+               <Options value="Cooperate Design"  >Cooperate Design</Options>
                <Options value="Product Design">Product Design</Options>
-               <Options value="Package" >Package</Options>
-               <Options value="Communication">Communication</Options>
-               <Options value="Campaign" >Campaign</Options>
-               <Options value="Flyers" >Flyers</Options>
+      
                
              </Select>
          </Mobileselect>
@@ -145,30 +107,47 @@ fetchWork()
          
          </Workcategory>
        </Filtertitle>
-       {loading&& <Pagecenter><PageLoading/></Pagecenter>}
+      
+
+       {loading ? 
+       
+       <Pagecenter><PageLoading/></Pagecenter>
+       :
+<>
+{works.length > 0?
+
+<>
+
 <Projects>
 
-
-{works.length > 0 ? works.map(work=>{
+ {works.map(work=>{
     return (
+      
 
   
   <Projectcover  key={work.id} >
   <Projectimg src={work.image} alt="The creative mena project" />
 <Projecttitle>{work.title}</Projecttitle>
-<Projecttext>{work.brief}</Projecttext>
+<Projecttext>{work.description}</Projecttext>
 <Projectlink to={`/work/${work.slug}`} />
   </Projectcover>
+ 
   )
-  }): <div>
+  })}
+
+  </Projects>
+  </>
+  : 
+  <div>
 
     <Producterror>
       No project available
     </Producterror>
   </div>}
 
-  
-</Projects>
+  </>
+}
+
        </Workfilter>
      </Container>
    </Workbody>
@@ -298,6 +277,7 @@ height: 100%;
 `
 const Workul = styled.ul`
 display: flex;
+max-width: 600px;
 flex-direction: row;
 align-items: center;
 justify-content: flex-start;
@@ -328,6 +308,7 @@ justify-content: center;
 
 const Workli = styled.button`
 margin: 0 15px;
+white-space: nowrap;
 border: none;
 background: transparent;
 outline: none;
@@ -339,6 +320,14 @@ color: ${themes.white};
 cursor: pointer;
 line-height: 1;
 height: 20px;
+transition: 0.3s ease-in;
+:hover{
+  color: ${themes.yellow};
+}
+
+:focus{
+  color: ${themes.yellow};
+}
 @media only screen and (max-width: 650px){
   font-size: 17px;
 

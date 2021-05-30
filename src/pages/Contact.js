@@ -9,7 +9,7 @@ import {RiMapPin2Fill} from 'react-icons/ri'
 import {MdEmail} from 'react-icons/md'
 import {CgPhone} from 'react-icons/cg'
 import { contactUrl } from '../constants'
-import DELIVERY from '../assets/DELIVERY.png'
+
 
 const Contact = () => {
 
@@ -65,7 +65,7 @@ const onChange = e=>{
 <Deliverytitle>
 <Deliveryh1>  I have received your mail and will reply shortly</Deliveryh1>
 </Deliverytitle>
-<Delivery src={DELIVERY} alt="The creative mena" />
+<Delivery src="https://res.cloudinary.com/dimrd8ott/image/upload/v1622341130/DELIVERY_1_io7z6e.png" alt="The creative mena" />
 
 </div>:<div><Form onSubmit={formSubmit}>
 
@@ -101,9 +101,12 @@ const onChange = e=>{
 </Socialcover>
 <Socialcover>
   <Socialicons>
-  <a rel="noopener noreferrer" target="_blank" href="thecreativemena.com"><Email/></a>
+
+  <a rel="noopener noreferrer" target="_blank" href="mailto:thecreativemena.com"><Email/></a>
   </Socialicons>
-  <Socialtext><a rel="noopener noreferrer" target="_blank" href="thecreativemena.com">hello@thecreativemena</a></Socialtext>
+  <Socialtext>
+  <a href="mailto:hello@thecreativemena.com">hello@thecreativemena.com</a>
+ </Socialtext>
 </Socialcover>
 <Socialcover>
   <Socialicons>
@@ -207,6 +210,7 @@ max-width: 584px;
 width: 100%;
 color: ${themes.white};
 height: 347px;
+resize: none;
 
 background: transparent;
 margin: 12px 0 0 0;
@@ -221,15 +225,16 @@ const Formbutton = styled.button`
 max-width: 584px;
 width: 100%;
 height: 74px;
+display: flex;
+align-items: center;
+cursor: pointer;
+justify-content: center;
 background: ${themes.yellow};
 font-size: 20px;
 font-weight: 600;
-color: ${themes.white};
+color: ${themes.black};
 line-height: 25px;
-letter-spacing: 0em;
-display: flex;
-align-items: center;
-justify-content: center;
+
 transition: all 0.3s ease-in;
 :hover{
   border: none;

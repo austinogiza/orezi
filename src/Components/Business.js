@@ -25,14 +25,14 @@ const Business = () => {
 
   </Businessbtn>
   <Businesssocials>
-    <Facebook>
+    <Facebook  href="https://www.facebook.com/TheCreativeMena" target="_blank"  rel="noopener noreferrer">
       <Facebookimg src={facebook} alt="The creative mena social media"/>
         
     </Facebook>
-    <Twitter>
+    <Twitter href="https://twitter.com/Thecreativemena" target="_blank"  rel="noopener noreferrer">
       <Twitterimg   src={twitter} alt="The creative mena social media"/>
     </Twitter>
-    <WhatsApp>
+    <WhatsApp href="https://api.whatsapp.com/send?phone=2348137871513&text=Hello%20Creative%20Mena,%20I%20got%20your%20contact%20from%20your%20website" target="_blank"  rel="noopener noreferrer">
       <Whatsappimg  src={whatsapp} alt="The creative mena social media"/>
     </WhatsApp>
   </Businesssocials>
@@ -95,9 +95,10 @@ align-items: center;
 min-height: 40px;
 width: 100%;
 `
-const Facebook = styled.div`
+const Facebook = styled.a`
 height: 54px;
 width: 54px;
+cursor: pointer;
 background: #91AAD3;
 display: flex;
 justify-content: center;
@@ -112,11 +113,12 @@ const Facebookimg = styled.img`
 width: 32px;
 height: 32px;
 `
-const Twitter = styled.div`
+const Twitter = styled.a`
 height: 54px;
 width: 54px;
 background: #B6E1F1;
 display: flex;
+cursor: pointer;
 border-radius: 50%;
 justify-content: center;
 align-items: center;
@@ -130,9 +132,9 @@ const Twitterimg = styled.img`
 width: 32px;
 height: 32px;
 `
-const WhatsApp = styled.div`
+const WhatsApp = styled.a`
 border-radius: 50%;
-
+cursor: pointer;
 height: 54px;
 width: 54px;
 background: #ADF095;

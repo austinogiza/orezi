@@ -15,15 +15,16 @@ const Home = () => {
 <HomeTop>
 <Orezi>
         <Oreziheader> <span>Hi, I’m</span> Orezi Mena</Oreziheader>
-        <Orezitext>Lets start the journey together,  and if you have
-started when you see this, lets finish what you started.  That idea, business, brand, product, would stand out with proper branding...... </Orezitext>
-<Orezibutton to='/contact'>Say Hi</Orezibutton>
+        <Orezitext>Got a brand, business, or product to design? 
+Let's start the journey together. If you have started the process, let's finish what you started. 
+That idea, business, brand, product, would stand out with proper branding.
+I help you bring that idea, business, brand, or product to life. 
+
+</Orezitext>
+<Orezibutton to='/about'>About Me</Orezibutton>
       </Orezi>
-
-
 </HomeTop>
 
-    
     </Container>
     <SelectedWorks/>
     <Skills/>

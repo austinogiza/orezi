@@ -3,11 +3,11 @@ import styled from "styled-components";
 export const Header = styled.h1`
 
 font-family: "Euclid-bold";
-font-size: 64px;
+font-size: 56px;
 font-weight: 700;
 line-height: 1.4;
 @media only screen and (max-width: 650px){
-  font-size: 34px;
+  font-size: 30px;
 }
 `
 export const mediumHeader = styled.h1`
@@ -120,6 +120,17 @@ line-height: 1.4;
 export const textCopy = styled.h1`
  font-family: "Euclid-medium";
 font-size: 26px;
+line-height: 1.4;
+@media only screen and (max-width: 650px){
+  font-size: 18px;
+}
+
+`
+
+export const skillTexts = styled.h1`
+  font-family: "Euclid-bold";
+  font-weight: 600;
+font-size: 34px;
 line-height: 1.4;
 @media only screen and (max-width: 650px){
   font-size: 18px;

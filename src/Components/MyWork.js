@@ -1,55 +1,107 @@
-import React from 'react'
+import React,  { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import pic from '../assets/projectsmall.png'
+
 import { Header,WorkCopy,captionHeader } from '../styles/Textsyles'
-import photoshop from '../assets/photoshop.svg'
-import illustrator from '../assets/illustrator.svg'
 import { themes } from '../styles/ColorStyles'
 import { workButtonNew } from '../styles/Button'
+import { shortWorkUrl } from '../constants'
+import axios from 'axios'
+import PageLoader from './PageLoader'
 const MyWork = () => {
+  const [work, setWork]= useState([])
+const [loading, setLoading] = useState(false)
+
+  const fetchWork =()=>{
+    setLoading(true)
+    axios.get(shortWorkUrl)
+    .then(res=>{
+      setWork(res.data)
+      setLoading(false)
+    })
+    .catch(err=>{
+      setLoading(false)
+
+    })
+  }
+  useEffect(()=>{
+    fetchWork()
+  }, [])
   return (
  <Work>
 
    <Container>
      <Worktitle><Titleh1>My Work</Titleh1></Worktitle>
 
+
+{loading ? <>
+
+
+<PageLoad>
+
+{loading &&   [1,2,3].map(load=> 
+
+<PageLoader key={load} /> )}
+</PageLoad>
+
+</>: <>
      <WorkSection>
-       <Workcover>
-         <WorkImage>
-           <Image src={pic} alt="The creative mena project"/>
-         </WorkImage>
-         <WorkDetails>
-         <Worktool><Photoshop src={photoshop} alt="The creative mena tool"/> <Illustrator  src={illustrator} alt="The creative mena tool"/></Worktool>
-           <Workh1>Agrific Brand Identity</Workh1>
-           <Workcat><Category>Branding & Visual Identity</Category><Category>Marketing Materials</Category></Workcat>
-<Workbutton>View Project</Workbutton>
-         </WorkDetails>
-       </Workcover>
-       <Workcover>
+   
+     {work[0] && <>
+      <Workcover>
     
+
+      <WorkImage>
+           <Image src={work[0].image} alt="The creative mena project"/>
+         </WorkImage>
          <WorkDetails>
-         <Worktool><Photoshop src={photoshop} alt="The creative mena tool"/> <Illustrator  src={illustrator} alt="The creative mena tool"/></Worktool>
-           <Workh1>Agrific Brand Identity</Workh1>
-           <Workcat><Category>Branding & Visual Identity</Category><Category>Marketing Materials</Category></Workcat>
-<Workbutton>View Project</Workbutton>
+         {/* <Worktool><Photoshop src={photoshop} alt="The creative mena tool"/> <Illustrator  src={illustrator} alt="The creative mena tool"/></Worktool> */}
+           <Workh1>{work[0].title}</Workh1>
+           <Workcat><Category>{work[0].category}</Category></Workcat>
+<Workbutton to={`/work/${work[0].slug}`}>View Project</Workbutton>
          </WorkDetails>
-         <WorkImage>
-           <Image src={pic} alt="The creative mena project"/>
-         </WorkImage>
+
+    
+    
        </Workcover>
-       <Workcover>
+
+     </>}
+
+     {work[1] && <>
+      <Workcover>
+    
+    <WorkDetails>
+    {/* <Worktool><Photoshop src={work[1].image} alt="The creative mena tool"/> 
+    <Illustrator  src={illustrator} alt="The creative mena tool"/></Worktool> */}
+      <Workh1>{work[1].title}</Workh1>
+      <Workcat><Category>{work[1].category}</Category></Workcat>
+<Workbutton to={`/work/${work[1].slug}`}>View Project</Workbutton>
+    </WorkDetails>
+    <WorkImage>
+      <Image src={work[1].image} alt="The creative mena project"/>
+    </WorkImage>
+  </Workcover>
+
+     </>}
+
+     {work[2] && 
+     
+     <>
+     <Workcover>
          <WorkImage>
-           <Image src={pic} alt="The creative mena project"/>
+           <Image src={work[2].image} alt="The creative mena project"/>
          </WorkImage>
          <WorkDetails>
-         <Worktool><Photoshop src={photoshop} alt="The creative mena tool"/> <Illustrator  src={illustrator} alt="The creative mena tool"/></Worktool>
-           <Workh1>Agrific Brand Identity</Workh1>
-           <Workcat><Category>Branding & Visual Identity</Category><Category>Marketing Materials</Category></Workcat>
-<Workbutton>View Project</Workbutton>
+         {/* <Worktool><Photoshop src={photoshop} alt="The creative mena tool"/> <Illustrator  src={illustrator} alt="The creative mena tool"/></Worktool> */}
+           <Workh1>{work[2].title}</Workh1>
+           <Workcat><Category>{work[2].category}</Category></Workcat>
+<Workbutton to={`/work/${work[2].slug}`}>View Project</Workbutton>
          </WorkDetails>
        </Workcover>
   
+     </>}
+       
      </WorkSection>
+     </>}
    </Container>
  </Work>
   )
@@ -145,29 +197,29 @@ justify-content: center;
 
 `
 
-const Worktool = styled.div`
-display: flex;
-flex-direction: row;
-align-items:flex-start;
-justify-content: center;
-`
+// const Worktool = styled.div`
+// display: flex;
+// flex-direction: row;
+// align-items:flex-start;
+// justify-content: center;
+// `
 
-const Photoshop = styled.img`
-height: 50px;
-width: 50px;
-border-radius: 5px;
+// const Photoshop = styled.img`
+// height: 50px;
+// width: 50px;
+// border-radius: 5px;
 
 
-`
-const Illustrator = styled.img`
-height: 50px;
-width: 50px;
-border-radius: 5px;
-margin: 0 15px;
-`
+// `
+// const Illustrator = styled.img`
+// height: 50px;
+// width: 50px;
+// border-radius: 5px;
+// margin: 0 15px;
+// `
 
 const Workh1 = styled(WorkCopy)`
-margin: 16px 0;
+margin: 8px 0;
 `
 
 const Workcat = styled.div`
@@ -185,6 +237,10 @@ margin: 0 15px 0 0;
 const Workbutton = styled(workButtonNew)`
 margin: 40px 0 0 0;
 `
-
-
+const PageLoad = styled.div`
+display: flex;
+flex-direction: column;
+min-height: 300px;
+width: 100%;
+`
 export default MyWork

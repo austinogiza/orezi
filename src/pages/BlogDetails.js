@@ -2,37 +2,46 @@ import React, { useEffect, useState} from 'react'
 import styled from 'styled-components'
 import inv from '../assets/Inv.svg'
 import ni from '../assets/Ni.svg'
-import pic from '../assets/pic.png'
+
 import { Body,bodyHead,Header,bodyText,textCopy,tinyTexts } from '../styles/Textsyles'
 import {FaFacebookF,FaTwitter,FaLinkedinIn} from 'react-icons/fa'
 import { themes } from '../styles/ColorStyles'
 import { Link, useParams, } from 'react-router-dom'
-import { blogPostUrl,tagUrl } from '../constants'
+import { blogPostUrl,tagUrl,baseURL } from '../constants'
 import axios from 'axios'
+import SmallPageLoading from '../Components/SmallPageLoading'
+import PageLoader from '../Components/PageLoader'
+
 
 
 const BlogDetails = () => {
 
+
   const {slug} = useParams();
   const [post,setPost] = useState(null)
-  const [tags, setTags]=useState(null)
+  const [loading,setLoading] = useState(false)
+  const [tags, setTags] = useState([])
 
   const fetchPost = ()=>{
+    setLoading(true)
 axios
 .get(blogPostUrl(slug))
 .then(res=>{
   setPost(res.data)
+  setLoading(false)
 })
 .catch(err=>{
+  setLoading(false)
 
 })
 
   }
 
 
+
   const fetchTags =()=>{
     axios
-  .get(tagUrl(slug))
+  .get((tagUrl), {params: {slug}})
   .then(res=>{
     setTags(res.data)
     console.log(tags)
@@ -41,23 +50,40 @@ axios
   
   })
   }
+  const fetchNewPost = () =>{
+    fetchPost()
+    fetchTags()
+  }
+
   useEffect(() => {
     fetchPost()
     fetchTags()
-  }, [])
+
+  }, [slug])
 
   return (
     <Blogbody>
 
       <Container>
-     {post &&  <BlogDetail>
+
+{loading ? 
+<>
+<PageLoader/>
+<SmallPageLoading/>
+<SmallPageLoading/>
+<SmallPageLoading/>
+</>
+
+:<>
+{post &&  <BlogDetail>
         <Blogmaintitle>{post.title}</Blogmaintitle>
-        <Blogdescription>{post.description}.</Blogdescription>
-        <Blogdate>{new Date(`${post.date}`).toLocaleDateString()}</Blogdate>
+     
+        {console.log(post.description)}
+
+        <Blogdate>{new Date(`${post.date}`).toLocaleString()}</Blogdate>
         <Blogimage src={post.image} alt={`The creative mena blog ${post.title}`} />
-        <Blogpostp>
-        {post.post}
-        </Blogpostp>
+        <Blogpostp dangerouslySetInnerHTML={{__html:post.post}}/>
+
 
         <Author>
           <Authorname>
@@ -79,25 +105,29 @@ axios
       <Related>
         <Relatedtitle><Relatedh1>Related</Relatedh1></Relatedtitle>
         <Relatedcover>
-        <Blogpost>
-          <Blogimg src={pic} alt="The creative Mena Blog"/>
+     {tags && tags.map(tags =>{
+
+      return (
+
+        <Blogpost key={tags.id}>
+          <Blogimg src={`${baseURL}${tags.image}`} alt="The creative Mena Blog"/>
           <Blogwrap>
-         <Blogtitle>Brand That Matters</Blogtitle>
-          <Blogdesc>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nisl egestas mauris, feugiat varius sed nisl. Et ullamcorper nulla proin amet. In et nunc nullam nisl. Varius mauris adipiscing</Blogdesc>
+         <Blogtitle>{tags.title}</Blogtitle>
+          <Blogdesc>{tags.description}</Blogdesc>
          </Blogwrap>
-          <Bloglink/>
+          <Bloglink onClick={fetchNewPost} to={`/blog/${tags.slug}`}/>
         </Blogpost>
-        <Blogpost>
-          <Blogimg/>
-         <Blogwrap>
-         <Blogtitle>Brand That Matters</Blogtitle>
-          <Blogdesc>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nisl egestas mauris, feugiat varius sed nisl. Et ullamcorper nulla proin amet. In et nunc nullam nisl. Varius mauris adipiscing</Blogdesc>
-         </Blogwrap>
-          <Bloglink/>
-        </Blogpost>
+      )
+     })}
+      
         </Relatedcover>
       </Related>
 
+
+</>
+}
+
+     
       </Container>
     </Blogbody>
   )
@@ -106,7 +136,9 @@ axios
 const Blogbody = styled.div`
 min-height: 600px;
 width:100%;
-padding: 10px 25px;
+padding: 10px 24px;
+overflow-x: hidden;
+word-wrap: break-word;
 
 background-image: url(${inv}),url(${ni});
 background-size: 20%,20%;
@@ -133,9 +165,7 @@ align-items: flex-start;
 `
 const Blogmaintitle  =styled(Header)`
 `
-const Blogdescription = styled(Body)`
-margin: 20px 0;
-`
+
 const Blogdate = styled(bodyHead)`
 `
 const Blogimage = styled.img`
@@ -147,8 +177,25 @@ height: 400px;
   height: 200px;
 }
 `
-const Blogpostp = styled(Body)`
+const Blogpostp = styled.div`
 line-height: 1.5;
+max-width: 900px;
+width: 100%;
+overflow-x: hidden;
+
+img{
+  max-width: 900px;
+  width: 100%;
+}
+
+a{
+  color: ${themes.yellow};
+  transition: 0.3s ease-in;
+  :hover{
+    
+  color: ${themes.primary};
+  }
+}
 `
 
 const Author = styled.div`
@@ -232,12 +279,12 @@ const Blogpost = styled.div`
 background: ${themes.primary};
 color: ${themes.black};
 position: relative;
-
+width: 100%;
+height: 100%;
 `
 const Blogimg = styled.img`
 height: 350px;
 width: 100%;
-
 @media only screen and (max-width: 650px){
   height: 200px;
 }

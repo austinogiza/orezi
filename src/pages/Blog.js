@@ -6,13 +6,14 @@ import ni from '../assets/Ni.svg'
 import { themes } from '../styles/ColorStyles'
 import {textCopy,tinyTexts} from '../styles/Textsyles'
 import SearchIcon from '../assets/Search.svg'
-
+import PageLoading from '../Components/PageLoading'
 import axios from 'axios'
 import { blogUrl, searchUrl } from '../constants'
 const Blog = () => {
 
   const [blog,setBlog] = useState([])
 const [search, setSearch] = useState("")
+const [loading, setLoading] = useState(false)
 
 const handleChange = e=> {
   setSearch(e.target.value)
@@ -20,24 +21,28 @@ const handleChange = e=> {
 
 const handleSubmit = e =>{
   e.preventDefault();
-
+  setLoading(true)
   axios
-  .get(searchUrl(search))
+  .get((searchUrl), {params: {search}})
   .then(res=>{
     console.log(res.data)
-    // setBlog(res.data)
+    setBlog(res.data)
+    setLoading(false)
   }).catch(err=>{
-
+    setLoading(false)
   })
 
 }
   const fetchBlogPost =()=>{
+    setLoading(true)
     axios
     .get(blogUrl)
     .then(res=>{
       setBlog(res.data)
+      setLoading(false)
     })
     .catch(res=>{
+      setLoading(false)
 
     })
   }
@@ -57,7 +62,8 @@ const handleSubmit = e =>{
 </Searchform>
       </Search>
       <Blogcover>
-      {blog.length>0 && blog.map(blog =>{
+      {loading && <Pagecenter><PageLoading/></Pagecenter>}
+      {blog && blog.length > 0 && blog.map(blog =>{
         return(
   
 <Blogpost key={blog.id}>
@@ -71,7 +77,11 @@ const handleSubmit = e =>{
        
     
         )
-      })  }
+      }) }
+
+      {blog && blog.length <0 && <Blogno>
+        <Blognoh1>No post available</Blognoh1>
+      </Blogno>}
         
       </Blogcover>
 
@@ -79,11 +89,29 @@ const handleSubmit = e =>{
   </Blogbody>
   )
 }
+const Blogno = styled.div`
+min-height: 600px;
+width:100%;
+padding: 10px 25px;
+display: flex;
+flex-direction: column;
+`
+const Blognoh1 = styled(textCopy)`
 
+`
+
+const Pagecenter = styled.div`
+width: 100%;
+height: 100px;
+display: flex;
+align-items: center;
+justify-content: center;
+`
 const Blogbody = styled.div`
 min-height: 600px;
 width:100%;
 padding: 10px 25px;
+
 
 background-image: url(${inv}),url(${ni});
 background-size: 20%,20%;

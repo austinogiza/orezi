@@ -1,10 +1,6 @@
 import React, {useEffect}from 'react'
 import styled from 'styled-components'
 import {Header} from '../styles/Textsyles'
-import work1 from '../assets/work1.png'
-import work2 from '../assets/work2.png'
-import work3 from '../assets/work3.png'
-import work4 from '../assets/work4.png'
 import { themes } from '../styles/ColorStyles'
 import { Link } from 'react-router-dom'
 import {  gsap, Power2, ScrollTrigger} from 'gsap/all'
@@ -14,7 +10,7 @@ const SelectedWorks = () => {
   const transition = {duration: 0.6, ease: [0.43, 0.13, 0.23, 0.6]}
 gsap.registerPlugin(ScrollTrigger)
 
-const tl =gsap.timeline({ paused: true,
+const tl =gsap.timeline({ paused: false,
   scrollTrigger: '.container'})
 const scroll =()=>{
 
@@ -28,6 +24,7 @@ const scroll =()=>{
 
 scroll()
 })
+
 
   return (
    <Selectbody>
@@ -43,19 +40,19 @@ scroll()
 
      <SelectedProjects onScroll={scroll} className="container"  >
        <Works className="img-container" >
-         <Image whileHover={{ scale : 1.1}} transition={transition} src={work1} className="photo" alt="The creative mena projects"/>
-         <Worktitle />
+         <Image transition={transition} src={`https://res.cloudinary.com/dimrd8ott/image/upload/v1622161202/Artboard_1_1_umzzl9.png`} className="photo" alt="The creative mena projects"/>
+        
        </Works>
        <Works className="img-container"  >
-  <Image src={work2}  whileHover={{ scale : 1.1}}  transition={transition}  className="photo" alt="The creative mena projects"/>
+  <Image src={`https://res.cloudinary.com/dimrd8ott/image/upload/v1622161202/Artboard_4_jurseq.png`}  transition={transition}  className="photo" alt="The creative mena projects"/>
   <Worktitle />
        </Works>
        <Works className="img-container">
-   <Image src={work3} whileHover={{ scale: 1.1}}  transition={transition}  className="photo" alt="The creative mena projects"/>
+   <Image src={`https://res.cloudinary.com/dimrd8ott/image/upload/v1622161202/Artboard_2_1_psmiji.png`}  transition={transition}  className="photo" alt="The creative mena projects"/>
    <Worktitle />
        </Works>
        <Works  className="img-container"  >
-    <Image src={work4} whileHover={{scale:1.1}}  transition={transition}  className="photo" alt="The creative mena projects"/>
+    <Image src="https://res.cloudinary.com/dimrd8ott/image/upload/v1622161202/Artboard_3_gmw2kn.png"  transition={transition}  className="photo" alt="The creative mena projects"/>
     <Worktitle />
        </Works>
      </SelectedProjects>
@@ -159,7 +156,7 @@ const Works = styled.div`
 position: relative;
 
 @media only screen and (max-width:800px){
-  height: 350px;
+  min-height: 350px;
 
 }
 `
@@ -167,7 +164,7 @@ const Image = styled(motion.img)`
 height: 100%;
 width: 100%;
 `
-const Worktitle = styled(Link)`
+const Worktitle = styled.div`
 position: absolute;
 height: 100%;
 width: 100%;

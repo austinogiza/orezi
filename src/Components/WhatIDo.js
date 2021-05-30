@@ -37,7 +37,7 @@ const WhatIDo = () => {
     </WhatMiddle>
     <Whattop>
     <Whatskill>
-    Argument Reality Design
+    Augmented Reality Design
     </Whatskill>
     <Whatskill>
     Marketing Materials
@@ -94,6 +94,7 @@ grid-gap: 50px;
 `
 const Whatskill = styled.div`
 display: flex;
+cursor: pointer;
 justify-content: center;
 align-items: center;
 padding: 24px 35px;

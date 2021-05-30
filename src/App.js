@@ -44,7 +44,6 @@ const App = () => {
 <Route exact path="/blog"  component={Blog}  />
 <Route exact path="/blog/:slug"  component={BlogDetails}  />
 <Route exact path="/contact"  component={Contact}  />
-
 <Route exact path="/work/:slug"  component={DetailedWork}  />
 
 </Switch>

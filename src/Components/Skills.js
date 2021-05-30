@@ -1,9 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Body, Header, lightHeader } from '../styles/Textsyles'
-import skill from '../assets/skills.png'
-import skill1 from '../assets/skills1.png'
-import skill2 from '../assets/skills2.png'
+import { Body, Header, skillTexts } from '../styles/Textsyles'
 
 const Skills = () => {
   return (
@@ -11,35 +8,29 @@ const Skills = () => {
   <Title><Titleh1>My Skills</Titleh1></Title>
 
   <Skillset>
-    <Skilltop>
-<Skillcover>
-<SkillImage src={skill} alt="The creative mena" />
-<Cover>  <Coverh1>
-  Branding
-  </Coverh1>
-  <Coverp>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tellus egestas magna leo vestibulum in.</Coverp></Cover>
-</Skillcover>
-    </Skilltop>
+
     <Skillbottom>
       <Skillmini>
       <Skillcover>
-      <SkillImage src={skill1} alt="The creative mena" />
+      <SkillImage src="https://res.cloudinary.com/dimrd8ott/image/upload/v1621944468/stock_1_khu2pk.jpg" alt="The creative mena" />
 <Cover>  <Coverh1>
-  Branding
+Co-operate Design
   </Coverh1>
-  <Coverp>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tellus egestas magna leo vestibulum in.</Coverp></Cover>
+  <Coverp>Give your business and product an identity, a life of its own. Cut through the noise and reach a wider audience with marketing materials that stand out.</Coverp></Cover>
 </Skillcover>
       </Skillmini>
       <Skillmini>
       <Skillcover>
-      <SkillImage src={skill2} alt="The creative mena" />
+      <SkillImage src={`https://res.cloudinary.com/dimrd8ott/image/upload/v1621948101/gtb_1_z5lmcg.jpg`} alt="The creative mena" />
 <Cover>  <Coverh1>
-  Branding
+Product Design
   </Coverh1>
-  <Coverp>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tellus egestas magna leo vestibulum in.</Coverp></Cover>
+  <Coverp>User experience is a critical part of your product's infrastructure. Let me help you craft a seamless user experience with a full product experience</Coverp></Cover>
 </Skillcover>
       </Skillmini>
     </Skillbottom>
+    
+  
   </Skillset>
 </Skillsbody>
   )
@@ -81,14 +72,7 @@ flex-direction: column;
 justify-content: center;
 align-items: flex-start;
 `
-const Skilltop = styled.div`
-height: 100%;
-width: 100%;
-@media only screen and (max-width: 650px){
-height: 350px;
 
-}
-`
 const Skillcover = styled.div`
 height: 100%;
 width: 100%;
@@ -133,7 +117,7 @@ padding: 0 65px ;
   padding: 0 25px ;
 }
 `
-const Coverh1 = styled(lightHeader)`
+const Coverh1 = styled(skillTexts)`
 
 `
 const Coverp = styled(Body)`

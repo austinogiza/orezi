@@ -17,23 +17,23 @@ const Footer = () => {
 <Orezi>
   <Oreziname>Orezi Mena
 </Oreziname>
-<Oreziname>Designer</Oreziname>
+<Oreziname>Product Designer</Oreziname>
 </Orezi>
         <Social>
         <Socialtitle>Thecreativemena</Socialtitle>
           <Socialcover>
     
            <Links>
-           <Link><Instagram/></Link>
+           <Link href="https://www.instagram.com/thecreativemena/"   target="_blank"  rel="noopener noreferrer"><Instagram/></Link>
          
             </Links>
  <Links>
- <Link><Twitter/></Link>
+ <Link href="https://twitter.com/Thecreativemena"  target="_blank"  rel="noopener noreferrer"><Twitter/></Link>
 
 </Links>
  <Links>
 
-<Link><Linkedin/></Link>
+<Link href="https://www.linkedin.com/in/thecreativemena/"  target="_blank"  rel="noopener noreferrer"><Linkedin/></Link>
 
 </Links>
           </Socialcover>
@@ -130,6 +130,11 @@ color: ${themes.white};
 `
 const Link = styled.a`
 cursor: pointer;
+color: ${themes.white};
+transition: 0.3s all ease;
+:hover{
+  color: ${themes.yellow};
+}
 `
 
 const Twitter = styled(FiTwitter)`
