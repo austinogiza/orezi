@@ -1,20 +1,18 @@
 {
   "files": {
-    "main.css": "/static/css/main.ccfaaaae.chunk.css",
-    "main.js": "/static/js/main.061b2972.chunk.js",
-    "main.js.map": "/static/js/main.061b2972.chunk.js.map",
+    "main.css": "/static/css/main.21b5d6fc.chunk.css",
+    "main.js": "/static/js/main.0f940298.chunk.js",
+    "main.js.map": "/static/js/main.0f940298.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.d2187dea.js",
     "runtime-main.js.map": "/static/js/runtime-main.d2187dea.js.map",
-    "static/js/2.6daf4fb7.chunk.js": "/static/js/2.6daf4fb7.chunk.js",
-    "static/js/2.6daf4fb7.chunk.js.map": "/static/js/2.6daf4fb7.chunk.js.map",
+    "static/js/2.4ace369d.chunk.js": "/static/js/2.4ace369d.chunk.js",
+    "static/js/2.4ace369d.chunk.js.map": "/static/js/2.4ace369d.chunk.js.map",
     "static/js/3.b62eb92d.chunk.js": "/static/js/3.b62eb92d.chunk.js",
     "static/js/3.b62eb92d.chunk.js.map": "/static/js/3.b62eb92d.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/main.ccfaaaae.chunk.css.map": "/static/css/main.ccfaaaae.chunk.css.map",
-    "static/js/2.6daf4fb7.chunk.js.LICENSE.txt": "/static/js/2.6daf4fb7.chunk.js.LICENSE.txt",
+    "static/css/main.21b5d6fc.chunk.css.map": "/static/css/main.21b5d6fc.chunk.css.map",
+    "static/js/2.4ace369d.chunk.js.LICENSE.txt": "/static/js/2.4ace369d.chunk.js.LICENSE.txt",
     "static/media/A.b252abc3.svg": "/static/media/A.b252abc3.svg",
-    "static/media/Baloons0001.ca5487e3.svg": "/static/media/Baloons0001.ca5487e3.svg",
-    "static/media/Baloons0002.55930531.svg": "/static/media/Baloons0002.55930531.svg",
     "static/media/C.cb6c545c.svg": "/static/media/C.cb6c545c.svg",
     "static/media/App.css": "/static/media/EuclidCircularA-Regular.d5460088.ttf",
     "static/media/Inv.7956b2ad.svg": "/static/media/Inv.7956b2ad.svg",
@@ -28,22 +26,20 @@
     "static/media/after-effect.ffc584b9.svg": "/static/media/after-effect.ffc584b9.svg",
     "static/media/agrific.875a5a20.svg": "/static/media/agrific.875a5a20.svg",
     "static/media/e.518a70f4.svg": "/static/media/e.518a70f4.svg",
-    "static/media/facebook.1cd74bef.svg": "/static/media/facebook.1cd74bef.svg",
     "static/media/illustrator.8f16cd4a.svg": "/static/media/illustrator.8f16cd4a.svg",
     "static/media/lirslogo-1.87244dfd.svg": "/static/media/lirslogo-1.87244dfd.svg",
     "static/media/logo-figma.a01d28dc.svg": "/static/media/logo-figma.a01d28dc.svg",
+    "static/media/orezi.b2d87318.gif": "/static/media/orezi.b2d87318.gif",
     "static/media/pattern.a9f779f4.svg": "/static/media/pattern.a9f779f4.svg",
     "static/media/photoshop.d58509c2.svg": "/static/media/photoshop.d58509c2.svg",
     "static/media/r.a46c280c.svg": "/static/media/r.a46c280c.svg",
     "static/media/reezuta.42dceb10.svg": "/static/media/reezuta.42dceb10.svg",
-    "static/media/staxckfill.428a0af4.svg": "/static/media/staxckfill.428a0af4.svg",
-    "static/media/twitter.8fa96255.svg": "/static/media/twitter.8fa96255.svg",
-    "static/media/whatsapp.cbd6b03b.svg": "/static/media/whatsapp.cbd6b03b.svg"
+    "static/media/staxckfill.428a0af4.svg": "/static/media/staxckfill.428a0af4.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.d2187dea.js",
-    "static/js/2.6daf4fb7.chunk.js",
-    "static/css/main.ccfaaaae.chunk.css",
-    "static/js/main.061b2972.chunk.js"
+    "static/js/2.4ace369d.chunk.js",
+    "static/css/main.21b5d6fc.chunk.css",
+    "static/js/main.0f940298.chunk.js"
   ]
 }

@@ -122,7 +122,7 @@ width: 100%;
 height: auto;
 padding: 50px 0;
 transition: all 0.5s ease-in;
-transform:${props => (props.isOpen ? "translateY(0%)":"translateY(-100%)")}
+transform: ${props => (props.isOpen ? "translateY(0%)":"translateY(-100%)")}
 
 }
 `

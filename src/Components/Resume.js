@@ -9,7 +9,7 @@ const Resume = () => {
     <Resumebody>
       <Container>
         <ResumeImage>
-          <Image src="https://res.cloudinary.com/dimrd8ott/image/upload/v1622341340/toy_vz7bsy.png" alt="Creative Mena"/>
+          <Image src="https://res.cloudinary.com/dimrd8ott/image/upload/v1622486267/toy_vz7bsy_1_1_2_1_ud4ojm.png" alt="Creative Mena"/>
         </ResumeImage>
         <Resumecontainer>
           <Resumetitle>

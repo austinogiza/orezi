@@ -186,6 +186,7 @@ overflow-x: hidden;
 img{
   max-width: 900px;
   width: 100%;
+  margin: 8px 0  !important;
 }
 
 a{
@@ -195,6 +196,17 @@ a{
     
   color: ${themes.primary};
   }
+}
+
+p{
+  line-height: 1.6  !important;
+  font-size: 16px  !important;
+  margin: 4px 0  !important;
+  text-align: left  !important;
+  
+}
+h1, h2,h3,h4{
+  margin: 4px 0  !important;
 }
 `
 

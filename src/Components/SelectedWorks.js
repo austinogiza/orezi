@@ -3,26 +3,18 @@ import styled from 'styled-components'
 import {Header} from '../styles/Textsyles'
 import { themes } from '../styles/ColorStyles'
 import { Link } from 'react-router-dom'
-import {  gsap, Power2, ScrollTrigger} from 'gsap/all'
+import {  gsap, ScrollTrigger} from 'gsap/all'
 import { motion } from 'framer-motion'
 
 const SelectedWorks = () => {
-  const transition = {duration: 0.6, ease: [0.43, 0.13, 0.23, 0.6]}
-gsap.registerPlugin(ScrollTrigger)
 
-const tl =gsap.timeline({ paused: false,
-  scrollTrigger: '.container'})
-const scroll =()=>{
 
-  tl.to(".container", 1, { css: { visibility: "visible" }})
-    .from(".photo", 1.4, { scale:1.4, ease: Power2.easeInOut, delay: -1.6, stagger:{
-      amount: 0.4
-    } } )
-}
+    gsap.registerPlugin(ScrollTrigger)
+   
+
 
   useEffect(() => {
 
-scroll()
 })
 
 
@@ -38,21 +30,21 @@ scroll()
        </WorksView>
      </Title>
 
-     <SelectedProjects onScroll={scroll} className="container"  >
-       <Works className="img-container" >
-         <Image transition={transition} src={`https://res.cloudinary.com/dimrd8ott/image/upload/v1622161202/Artboard_1_1_umzzl9.png`} className="photo" alt="The creative mena projects"/>
+     <SelectedProjects >
+       <Works initial={{y: 20}} animate={{y: 0, transition: {duration: 1}}}   >
+         <Image src={`https://res.cloudinary.com/dimrd8ott/image/upload/v1622485930/Artboard_1_nbcbz8.png`}  alt="The creative mena projects"/>
         
        </Works>
-       <Works className="img-container"  >
-  <Image src={`https://res.cloudinary.com/dimrd8ott/image/upload/v1622161202/Artboard_4_jurseq.png`}  transition={transition}  className="photo" alt="The creative mena projects"/>
+       <Works initial={{y: 30}} animate={{y: 0, transition: {duration: 1, delay: 0.3}}} >
+  <Image src={`https://res.cloudinary.com/dimrd8ott/image/upload/v1622485929/Artboard_4_lqm6wg.png`}     alt="The creative mena projects"/>
   <Worktitle />
        </Works>
-       <Works className="img-container">
-   <Image src={`https://res.cloudinary.com/dimrd8ott/image/upload/v1622161202/Artboard_2_1_psmiji.png`}  transition={transition}  className="photo" alt="The creative mena projects"/>
+       <Works initial={{y: 30}} animate={{y: 0, transition: {duration: 1, delay: 0.5}}} >
+   <Image src={`https://res.cloudinary.com/dimrd8ott/image/upload/v1622485929/Artboard_2_pozxx2.png`}   alt="The creative mena projects"/>
    <Worktitle />
        </Works>
-       <Works  className="img-container"  >
-    <Image src="https://res.cloudinary.com/dimrd8ott/image/upload/v1622161202/Artboard_3_gmw2kn.png"  transition={transition}  className="photo" alt="The creative mena projects"/>
+       <Works initial={{y: 30}} animate={{y: 0, transition: {duration: 1, delay: 0.9}}} >
+    <Image src="https://res.cloudinary.com/dimrd8ott/image/upload/v1622485929/Artboard_3_douprc.png"  alt="The creative mena projects"/>
     <Worktitle />
        </Works>
      </SelectedProjects>
@@ -62,14 +54,14 @@ scroll()
 
 
 const Selectbody = styled.div`
-padding:10px 25px;
-min-height: 400px;
+padding:10px 24px;
+min-height: 200px;
 width: 100%;
 display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: flex-start;
-margin: 48px 0;
+margin: 24px 0;
 
 @media only screen and (max-width : 650px){
   margin: 16px 0;
@@ -84,7 +76,7 @@ display: flex;
 flex-direction: row;
 justify-content: space-between;
 align-items: center;
-margin: 32px auto;
+margin: 24px auto;
 max-width: 1100px;
 
 @media only screen and (max-width : 650px){
@@ -140,25 +132,20 @@ transition: all 0.4s ease-in;
 
 `
 const SelectedProjects = styled.div`
-min-height: 400px;
 height: 100%;
 width: 100%;
 display: grid;
 grid-template-columns: repeat(4,1fr);
 grid-gap: 13px;
-visibility: hidden;
+
 @media only screen and (max-width: 800px){
   grid-template-columns: repeat(1,1fr);
 }
 
 `
-const Works = styled.div`
+const Works = styled(motion.div)`
 position: relative;
-
-@media only screen and (max-width:800px){
-  min-height: 350px;
-
-}
+height: 100%;
 `
 const Image = styled(motion.img)`
 height: 100%;

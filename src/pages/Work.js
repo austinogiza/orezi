@@ -192,6 +192,7 @@ width: 100%;
 const Mobileselect = styled.div`
 min-height: 100px;
 width: 100%;
+
 `
 const Select = styled.select`
 max-width: 150px;
@@ -208,7 +209,8 @@ border-radius: 5px;
 appearance: none;
 --webkit-appearance: none;
 --moz-appearance: none;
-
+background: ${themes.white};
+color: ${themes.black};
 background-image: url('data:image/svg+xml;utf8,<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 9L12 15L18 9" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>');
 background-repeat: no-repeat;
 background-position: right 5px top 40%;
@@ -225,8 +227,8 @@ font-family: "Euclid-light";
 font-size: 17px;
 font-weight: 400;
 line-height: 1.4;
-background: ${themes.yellow};
-color: ${themes.dark};
+background: ${themes.primary};
+color: ${themes.black};
 `
 const Filtertitle = styled.div`
 display: flex;
@@ -356,7 +358,17 @@ width: 100%;
 height: 100%;
 position: relative;
 z-index: 1;
-padding: 10px 25px;
+padding: 10px 24px;
+::after{
+  background: rgba(0,0,0,0.3);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  content: "";
+  z-index: 20;
+}
 `
 const Projectimg = styled.img`
   object-fit: cover;
@@ -366,6 +378,7 @@ const Projectimg = styled.img`
   height: 100%;
   width: 100%;
   z-index: -1;
+
 `
 
 const upAnim = keyframes`
@@ -386,6 +399,8 @@ ${Projectcover}:hover & {
   opacity: 1;
   animation: ${upAnim} 1s ease-in;
 }
+position: relative;
+z-index: 22;
 `
 const Projecttext = styled(bodyText)`
 opacity: 0;
@@ -393,6 +408,8 @@ ${Projectcover}:hover & {
   opacity: 1;
   animation: ${upAnim} 1s ease-in;
 }
+position: relative;
+z-index: 22;
 `
 const Projectlink = styled(Link)`
  object-fit: cover;
@@ -401,8 +418,8 @@ const Projectlink = styled(Link)`
   left: 0;
   height: 100%;
   width: 100%;
-  z-index: -1;
-z-index: 3;
+
+z-index: 33;
 
 `
 export default Work

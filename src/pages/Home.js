@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import styled from 'styled-components'
 import { mainButton } from '../styles/Button'
 import { Header,Body} from '../styles/Textsyles'
@@ -7,10 +7,29 @@ import Resume from '../Components/Resume'
 import Business from '../Components/Business'
 import SelectedWorks from '../Components/SelectedWorks'
 import Skills from '../Components/Skills'
+import loader from '../assets/orezi.gif'
 
 const Home = () => {
+const [preloader, setPreloader]=useState(false)
+const [timer, setTimer]=useState(4)
+
+  useEffect(()=>{
+   window.setInterval(() => {
+    setTimer((timer)=> timer - 1)
+
+   }, 1000);
+
+    if(timer === 0 ){
+      setPreloader(true)
+    }
+  }, [timer])
+  
   return (
   <Homebody>
+
+  <Preloader preloader={preloader}>
+    <Loaderimg src={loader}/>
+  </Preloader>
     <Container>
 <HomeTop>
 <Orezi>
@@ -81,15 +100,41 @@ justify-content: center;
   text-align: center;
 justify-content: center;
 }
+@media only screen and (max-width: 650px){
+  align-items: flex-start;
+}
 
 `
-const Oreziheader = styled(Header)``
+const Oreziheader = styled(Header)`
+@media only screen and (max-width: 650px){
+  text-align: left;
+}
+`
 const Orezitext = styled(Body)`
 margin: 16px 0;
+@media only screen and (max-width: 650px){
+  text-align: left;
+}
 `
 const Orezibutton = styled(mainButton)`
 margin: 16px 0;
 `
+const Preloader = styled.div`
+position: fixed;
+width:100%;
+height: 100%;
+top: 0;
+left:0;
+z-index: 20;
+display: ${props => props.preloader ? "none" : "flex" };
+background: #000;
+`
 
+const Loaderimg = styled.img`
+width: 100%;
+height: 100%;
+max-width: 800px;
+margin: 0 auto;
+`
 
 export default Home

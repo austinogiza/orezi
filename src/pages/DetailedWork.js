@@ -123,15 +123,15 @@ color: ${themes.yellow}
 `
 
 const ProjectImages = styled.div`
-margin: 20px 0;
+margin: 16px 0;
 max-width: 1100px;
 width: 100%;
-grid-gap: 20px;
 min-height:425px;
 img{
   max-width: 1100px;
 width: 100%;
-min-height: 200px;
+margin: 8px 0  !important;
+min-height: 200px !important;
 }
 a{
   color: ${themes.yellow};
@@ -142,6 +142,17 @@ a{
   }
 }
 
+
+p{
+  line-height: 1.6  !important;
+  font-size: 16px  !important;
+  margin: 8px 0  !important;
+  text-align: left  !important;
+  
+}
+h1, h2,h3,h4{
+  margin: 4px 0 !important;
+}
 `
 
 const Softwaresused = styled.div`
@@ -158,6 +169,10 @@ height: 100%;
 width: 100%;
 display: flex;
 flex-direction: row;
+@media only screen and (max-width: 650px){
+
+  flex-direction: column;
+}
 `
 const Softtitle = styled.div`
 display: flex;
@@ -179,7 +194,7 @@ background: ${themes.yellow};
 
 `
 const Softwares = styled.div`
-margin: 0 15px;
+margin: 8px 15px;
 `
 const Photoshop = styled.img`
 height: 40px;

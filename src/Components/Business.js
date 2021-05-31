@@ -1,13 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import { themes } from '../styles/ColorStyles'
-import ballon1 from '../assets/Baloons0001.svg'
-import ballon2 from '../assets/Baloons0002.svg'
 import { headerMedium } from '../styles/Textsyles'
 import { workButton } from '../styles/Button'
-import facebook from '../assets/facebook.svg'
-import twitter from '../assets/twitter.svg'
-import whatsapp from '../assets/whatsapp.svg'
+
 const Business = () => {
   return (
 <Businessbody>
@@ -26,14 +22,14 @@ const Business = () => {
   </Businessbtn>
   <Businesssocials>
     <Facebook  href="https://www.facebook.com/TheCreativeMena" target="_blank"  rel="noopener noreferrer">
-      <Facebookimg src={facebook} alt="The creative mena social media"/>
+      <Facebookimg src={`https://res.cloudinary.com/dimrd8ott/image/upload/v1622486628/facebook_1_lhltwx.png`} alt="The creative mena social media"/>
         
     </Facebook>
     <Twitter href="https://twitter.com/Thecreativemena" target="_blank"  rel="noopener noreferrer">
-      <Twitterimg   src={twitter} alt="The creative mena social media"/>
+      <Twitterimg   src="https://res.cloudinary.com/dimrd8ott/image/upload/v1622486628/twitter_1_ypalin.png" alt="The creative mena social media"/>
     </Twitter>
     <WhatsApp href="https://api.whatsapp.com/send?phone=2348137871513&text=Hello%20Creative%20Mena,%20I%20got%20your%20contact%20from%20your%20website" target="_blank"  rel="noopener noreferrer">
-      <Whatsappimg  src={whatsapp} alt="The creative mena social media"/>
+      <Whatsappimg  src={`https://res.cloudinary.com/dimrd8ott/image/upload/v1622486628/whatsapp_1_dhksqz.png`} alt="The creative mena social media"/>
     </WhatsApp>
   </Businesssocials>
  </Businesscover>
@@ -49,7 +45,7 @@ justify-content: center;
 align-items: center;
 min-height: 600px;
 width: 100%;
-background-image: url(${ballon2}),url(${ballon1});
+background-image: url("https://res.cloudinary.com/dimrd8ott/image/upload/v1622486745/Baloons0002_1_1_tsko83.png"),url("https://res.cloudinary.com/dimrd8ott/image/upload/v1622486746/Baloons0001_1_1_k5cuo5.png");
 background-size: 25%,25%;
 background-position: top -30px left 0%, bottom -20% right 0%;
 background-repeat: no-repeat, no-repeat;

@@ -12,7 +12,7 @@ const Skills = () => {
     <Skillbottom>
       <Skillmini>
       <Skillcover>
-      <SkillImage src="https://res.cloudinary.com/dimrd8ott/image/upload/v1621944468/stock_1_khu2pk.jpg" alt="The creative mena" />
+      <SkillImage src="https://res.cloudinary.com/dimrd8ott/image/upload/v1622486070/b1f4e9118261741.6085f2a93f03d_1_u0bvcs_1_1_1_oeyhjr.png" alt="The creative mena" />
 <Cover>  <Coverh1>
 Co-operate Design
   </Coverh1>
@@ -21,7 +21,7 @@ Co-operate Design
       </Skillmini>
       <Skillmini>
       <Skillcover>
-      <SkillImage src={`https://res.cloudinary.com/dimrd8ott/image/upload/v1621948101/gtb_1_z5lmcg.jpg`} alt="The creative mena" />
+      <SkillImage src={`https://res.cloudinary.com/dimrd8ott/image/upload/v1622486147/gtb_1_z5lmcg_1_1_1_jnrbmw.jpg`} alt="The creative mena" />
 <Cover>  <Coverh1>
 Product Design
   </Coverh1>
