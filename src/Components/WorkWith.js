@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import {workButtonNew} from '../styles/Button'
-import {AiOutlineBehance,AiOutlineTwitter,AiOutlineInstagram} from 'react-icons/ai'
+import {AiOutlineBehance,AiOutlineTwitter,AiOutlineInstagram, AiOutlineDribbble} from 'react-icons/ai'
 import { Header,Body } from '../styles/Textsyles'
 import { themes } from '../styles/ColorStyles'
 
@@ -20,6 +20,7 @@ const WorkWith = () => {
   <a href="https://www.behance.net/creativemena" target="_blank"  rel="noopener noreferrer"><Iconswrapper><Behance/></Iconswrapper></a>
       <a href="https://twitter.com/Thecreativemena" target="_blank"   rel="noopener noreferrer">  <Iconswrapper><Twitter/></Iconswrapper></a>
       <a href="https://www.instagram.com/thecreativemena/" target="_blank"   rel="noopener noreferrer"> <Iconswrapper><Instagram/></Iconswrapper></a>
+      <a href="https://dribbble.com/creativemena/" target="_blank"   rel="noopener noreferrer"> <Iconswrapper><Dribbble/></Iconswrapper></a>
       </Iconscover>
     </Workicons>
    </Workleft>
@@ -112,13 +113,19 @@ const Iconscover = styled.div`
 width: 100%;
 height: 100%;
 display: grid;
-grid-template-columns: repeat(3,1fr);
+grid-template-columns: repeat(4,1fr);
 grid-gap: 82px;
 text-align: center;
 justify-content: center;
 align-items: center;
 
 @media only screen and (max-width: 800px){
+  grid-template-columns: repeat(2,1fr);
+grid-gap: 24px;
+place-items: center;
+}
+
+@media only screen and (max-width: 550px){
   grid-template-columns: repeat(1,1fr);
 grid-gap: 24px;
 place-items: center;
@@ -148,6 +155,12 @@ width: 32px;
 color: ${themes.white};
 `
 const Instagram = styled(AiOutlineInstagram)`
+height: 26px;
+width: 32px;
+color: ${themes.white};
+
+`
+const Dribbble = styled(AiOutlineDribbble)`
 height: 26px;
 width: 32px;
 color: ${themes.white};

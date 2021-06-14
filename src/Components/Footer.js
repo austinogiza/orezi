@@ -5,7 +5,7 @@ import img from '../assets/Logo.svg'
 import { themes } from '../styles/ColorStyles'
 import {FiLinkedin,FiInstagram,FiTwitter} from 'react-icons/fi'
 import { bodyHeader } from '../styles/Textsyles'
-
+import {AiOutlineDribbble} from 'react-icons/ai'
 
 const Footer = () => {
   return (
@@ -36,6 +36,12 @@ const Footer = () => {
 <Link href="https://www.linkedin.com/in/thecreativemena/"  target="_blank"  rel="noopener noreferrer"><Linkedin/></Link>
 
 </Links>
+ <Links>
+
+ <Link href="https://dribbble.com/creativemena/"  target="_blank"  rel="noopener noreferrer"><Dribbble/></Link>
+
+</Links>
+
           </Socialcover>
         </Social>
       </Container>
@@ -64,6 +70,7 @@ align-items: center;
   grid-template-columns: repeat(1, minmax(10px,1fr));
   padding: 20px 25px;
 }
+
 `
 const Name = styled.div`
 height: 60px;
@@ -115,8 +122,13 @@ display: flex;
 flex-direction: row;
 justify-content: flex-start;
 align-items: center;
+@media only screen and (max-width: 800px){
+
+  justify-content: center;
+}
 @media only screen and (max-width: 650px){
   flex-direction: column;
+
 }
 `
 const Links = styled.li`
@@ -126,28 +138,30 @@ font-style: normal;
 font-weight: 400;
 line-height: 30px;
 color: ${themes.white};
+margin: 8px;
 
 `
 const Link = styled.a`
 cursor: pointer;
 color: ${themes.white};
 transition: 0.3s all ease;
+margin: 0 12px;
+
 :hover{
   color: ${themes.yellow};
 }
 `
 
 const Twitter = styled(FiTwitter)`
-margin: 0 24px;
 
-@media only screen and (max-width: 650px){
-  margin: 24px 0;
-}
 `
 const Instagram = styled(FiInstagram)`
 
 `
 const Linkedin = styled(FiLinkedin)`
+
+`
+const Dribbble = styled(AiOutlineDribbble)`
 
 `
 export default Footer
