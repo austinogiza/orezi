@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { resumeButton } from '../styles/Button'
 import { themes } from '../styles/ColorStyles'
 import { headerMedium,Body } from '../styles/Textsyles'
+import resume from '../assets/Resume.pdf'
 
 const Resume = () => {
   return (
@@ -17,7 +18,7 @@ const Resume = () => {
           <Resumeh1>Check out my résume.</Resumeh1></Resumetitle>
           <Resumetext><Resumep>I'm The Creative Mena, the creative genius you need. I'm not just talk, I've got the experience to back it up. </Resumep></Resumetext>
           <Resumebutton>
-            <Resumebtn>Download</Resumebtn>
+            <Resumebtn href={resume} download>Download</Resumebtn>
           </Resumebutton>
         </Resumecontainer>
       </Container>

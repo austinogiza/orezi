@@ -39,7 +39,7 @@ width: 40px;
 height: 40px;
 border: 1px solid ${themes.white};
 pointer-events: none;
-transition: all 0.2s ease-ease-in-out;
+transition: 0.2s ease-in-out;
 border-radius: 100%;
 transform: translate(-30%,-30%);
 z-index: 999;

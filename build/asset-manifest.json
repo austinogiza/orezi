@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/static/css/main.21b5d6fc.chunk.css",
-    "main.js": "/static/js/main.417b7167.chunk.js",
-    "main.js.map": "/static/js/main.417b7167.chunk.js.map",
+    "main.js": "/static/js/main.444b1a4e.chunk.js",
+    "main.js.map": "/static/js/main.444b1a4e.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.d2187dea.js",
     "runtime-main.js.map": "/static/js/runtime-main.d2187dea.js.map",
     "static/js/2.c875eb73.chunk.js": "/static/js/2.c875eb73.chunk.js",
@@ -21,6 +21,7 @@
     "static/media/N.fd37bc99.svg": "/static/media/N.fd37bc99.svg",
     "static/media/Ni.3c268e62.svg": "/static/media/Ni.3c268e62.svg",
     "static/media/RIGGA.ca494dfc.svg": "/static/media/RIGGA.ca494dfc.svg",
+    "static/media/Resume.d614ed85.pdf": "/static/media/Resume.d614ed85.pdf",
     "static/media/Search.68af8632.svg": "/static/media/Search.68af8632.svg",
     "static/media/afriOne.04855168.svg": "/static/media/afriOne.04855168.svg",
     "static/media/after-effect.ffc584b9.svg": "/static/media/after-effect.ffc584b9.svg",
@@ -40,6 +41,6 @@
     "static/js/runtime-main.d2187dea.js",
     "static/js/2.c875eb73.chunk.js",
     "static/css/main.21b5d6fc.chunk.css",
-    "static/js/main.417b7167.chunk.js"
+    "static/js/main.444b1a4e.chunk.js"
   ]
 }
